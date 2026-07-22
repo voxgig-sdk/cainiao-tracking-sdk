@@ -1,0 +1,21 @@
+// Typed models for the CainiaoTracking SDK.
+//
+// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
+// params (op.<name>.points[].args.params[]). Field/param types come from the
+// canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
+// @voxgig/apidef VALID_CANON). Do not edit by hand.
+
+export interface Tracking {
+  data?: Record<string, any>
+  error_code?: string
+  error_msg?: string
+  success?: boolean
+}
+
+export interface TrackingLoadMatch {
+  data?: Record<string, any>
+  error_code?: string
+  error_msg?: string
+  success?: boolean
+}
+

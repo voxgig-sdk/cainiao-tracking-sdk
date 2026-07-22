@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// CainiaoTracking SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+CainiaoTrackingUtility::setRegistrar(function (CainiaoTrackingUtility $u): void {
+    $u->clean = [CainiaoTrackingClean::class, 'call'];
+    $u->done = [CainiaoTrackingDone::class, 'call'];
+    $u->make_error = [CainiaoTrackingMakeError::class, 'call'];
+    $u->feature_add = [CainiaoTrackingFeatureAdd::class, 'call'];
+    $u->feature_hook = [CainiaoTrackingFeatureHook::class, 'call'];
+    $u->feature_init = [CainiaoTrackingFeatureInit::class, 'call'];
+    $u->fetcher = [CainiaoTrackingFetcher::class, 'call'];
+    $u->make_fetch_def = [CainiaoTrackingMakeFetchDef::class, 'call'];
+    $u->make_context = [CainiaoTrackingMakeContext::class, 'call'];
+    $u->make_options = [CainiaoTrackingMakeOptions::class, 'call'];
+    $u->make_request = [CainiaoTrackingMakeRequest::class, 'call'];
+    $u->make_response = [CainiaoTrackingMakeResponse::class, 'call'];
+    $u->make_result = [CainiaoTrackingMakeResult::class, 'call'];
+    $u->make_point = [CainiaoTrackingMakePoint::class, 'call'];
+    $u->make_spec = [CainiaoTrackingMakeSpec::class, 'call'];
+    $u->make_url = [CainiaoTrackingMakeUrl::class, 'call'];
+    $u->param = [CainiaoTrackingParam::class, 'call'];
+    $u->prepare_auth = [CainiaoTrackingPrepareAuth::class, 'call'];
+    $u->prepare_body = [CainiaoTrackingPrepareBody::class, 'call'];
+    $u->prepare_headers = [CainiaoTrackingPrepareHeaders::class, 'call'];
+    $u->prepare_method = [CainiaoTrackingPrepareMethod::class, 'call'];
+    $u->prepare_params = [CainiaoTrackingPrepareParams::class, 'call'];
+    $u->prepare_path = [CainiaoTrackingPreparePath::class, 'call'];
+    $u->prepare_query = [CainiaoTrackingPrepareQuery::class, 'call'];
+    $u->result_basic = [CainiaoTrackingResultBasic::class, 'call'];
+    $u->result_body = [CainiaoTrackingResultBody::class, 'call'];
+    $u->result_headers = [CainiaoTrackingResultHeaders::class, 'call'];
+    $u->transform_request = [CainiaoTrackingTransformRequest::class, 'call'];
+    $u->transform_response = [CainiaoTrackingTransformResponse::class, 'call'];
+});

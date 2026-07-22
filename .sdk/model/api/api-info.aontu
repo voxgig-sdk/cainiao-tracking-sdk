@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        url: "https://github.com/l0v3m0n3y/cainiao"
+      }
+      description: "This API provides access to the global tracking information for shipments handled by Cainiao, Aliexpress, and Alibaba. Users can retrieve detailed shipment statuses, delivery information, and track parcels across various regions."
+      servers: [
+        {
+          description: "Cainiao Global Tracking Server"
+          url: "https://global.cainiao.com"
+        }
+      ]
+      summary: "This API provides access to the global tracking information for shipments handled by Cainiao, Aliexpress, and Alibaba."
+      title: "Cainiao Tracking API"
+      version: "1.0.0"
+      website: "https://github.com/l0v3m0n3y/cainiao"
+    }
+  }
+}
+

@@ -1,0 +1,18 @@
+# CainiaoTracking SDK feature factory
+
+require_relative 'feature/base_feature'
+require_relative 'feature/test_feature'
+
+
+module CainiaoTrackingFeatures
+  def self.make_feature(name)
+    case name
+    when "base"
+      CainiaoTrackingBaseFeature.new
+    when "test"
+      CainiaoTrackingTestFeature.new
+    else
+      CainiaoTrackingBaseFeature.new
+    end
+  end
+end

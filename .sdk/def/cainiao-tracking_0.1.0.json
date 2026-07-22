@@ -1,0 +1,269 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Cainiao Tracking API",
+    "description": "This API provides access to the global tracking information for shipments handled by Cainiao, Aliexpress, and Alibaba. Users can retrieve detailed shipment statuses, delivery information, and track parcels across various regions.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/l0v3m0n3y/cainiao"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://global.cainiao.com",
+      "description": "Cainiao Global Tracking Server"
+    }
+  ],
+  "paths": {
+    "/global/detail.json": {
+      "get": {
+        "summary": "Get shipment tracking details",
+        "description": "Retrieve detailed tracking information for one or more parcels by their tracking numbers. Returns shipment status, delivery information, and tracking history across various regions.",
+        "operationId": "getTrackingDetail",
+        "parameters": [
+          {
+            "name": "mailNos",
+            "in": "query",
+            "description": "Tracking number(s) for the shipment(s). Multiple tracking numbers can be provided separated by commas.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ZH363796677HK"
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "Language code for the response (e.g., en-US, zh-CN, fr-FR)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "en-US"
+            },
+            "example": "en-US"
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Alternative language parameter for response localization",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "en-US"
+            },
+            "example": "en-US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with tracking details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Indicates if the request was successful"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "mailNo": {
+                          "type": "string",
+                          "description": "The tracking number of the shipment"
+                        },
+                        "status": {
+                          "type": "string",
+                          "description": "Current status of the shipment"
+                        },
+                        "statusDescription": {
+                          "type": "string",
+                          "description": "Detailed description of the current status"
+                        },
+                        "latestTrackingInfo": {
+                          "type": "object",
+                          "properties": {
+                            "time": {
+                              "type": "string",
+                              "format": "date-time",
+                              "description": "Timestamp of the latest tracking event"
+                            },
+                            "desc": {
+                              "type": "string",
+                              "description": "Description of the latest tracking event"
+                            },
+                            "location": {
+                              "type": "string",
+                              "description": "Location of the latest tracking event"
+                            }
+                          }
+                        },
+                        "trackingList": {
+                          "type": "array",
+                          "description": "Complete tracking history",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "time": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Timestamp of the tracking event"
+                              },
+                              "desc": {
+                                "type": "string",
+                                "description": "Description of the tracking event"
+                              },
+                              "location": {
+                                "type": "string",
+                                "description": "Location of the tracking event"
+                              },
+                              "status": {
+                                "type": "string",
+                                "description": "Status at this tracking point"
+                              }
+                            }
+                          }
+                        },
+                        "destCountry": {
+                          "type": "string",
+                          "description": "Destination country code"
+                        },
+                        "originCountry": {
+                          "type": "string",
+                          "description": "Origin country code"
+                        }
+                      }
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "description": "Error code if applicable"
+                    },
+                    "errorMsg": {
+                      "type": "string",
+                      "description": "Error message if applicable"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "data": {
+                    "mailNo": "ZH363796677HK",
+                    "status": "DELIVERED",
+                    "statusDescription": "Package delivered successfully",
+                    "latestTrackingInfo": {
+                      "time": "2024-01-15T10:30:00Z",
+                      "desc": "Delivered",
+                      "location": "New York, US"
+                    },
+                    "trackingList": [
+                      {
+                        "time": "2024-01-15T10:30:00Z",
+                        "desc": "Delivered",
+                        "location": "New York, US",
+                        "status": "DELIVERED"
+                      },
+                      {
+                        "time": "2024-01-14T08:00:00Z",
+                        "desc": "Out for delivery",
+                        "location": "New York, US",
+                        "status": "IN_TRANSIT"
+                      }
+                    ],
+                    "destCountry": "US",
+                    "originCountry": "CN"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "example": "INVALID_PARAMETER"
+                    },
+                    "errorMsg": {
+                      "type": "string",
+                      "example": "Invalid tracking number format"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tracking number not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "example": "NOT_FOUND"
+                    },
+                    "errorMsg": {
+                      "type": "string",
+                      "example": "Tracking number not found in system"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "errorCode": {
+                      "type": "string",
+                      "example": "INTERNAL_ERROR"
+                    },
+                    "errorMsg": {
+                      "type": "string",
+                      "example": "An internal error occurred"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Tracking"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Tracking",
+      "description": "Operations related to shipment tracking and delivery status"
+    }
+  ],
+  "externalDocs": {
+    "description": "API Documentation on GitHub",
+    "url": "https://github.com/l0v3m0n3y/cainiao"
+  }
+}

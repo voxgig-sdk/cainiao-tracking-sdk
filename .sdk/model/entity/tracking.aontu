@@ -1,0 +1,88 @@
+# Entity: tracking
+
+main: kit: entity: tracking: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "data"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "error_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "error_msg"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "success"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  name: "tracking"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "en-US"
+                kind: "query"
+                name: "lang"
+                orig: "lang"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "en-US"
+                kind: "query"
+                name: "language"
+                orig: "language"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "ZH363796677HK"
+                kind: "query"
+                name: "mail_no"
+                orig: "mail_no"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/global/detail.json"
+          parts: [
+            "global"
+            "detail.json"
+          ]
+          select: {
+            exist: [
+              "lang"
+              "language"
+              "mail_no"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
