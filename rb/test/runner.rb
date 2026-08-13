@@ -23,8 +23,8 @@ module CainiaoTrackingTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("CAINIAOTRACKING_TEST_LIVE")
-    override = getenv("CAINIAOTRACKING_TEST_OVERRIDE")
+    live = getenv("CAINIAO_TRACKING_TEST_LIVE")
+    override = getenv("CAINIAO_TRACKING_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module CainiaoTrackingTestRunner
       end
     end
 
-    explain = getenv("CAINIAOTRACKING_TEST_EXPLAIN")
-    m["CAINIAOTRACKING_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("CAINIAO_TRACKING_TEST_EXPLAIN")
+    m["CAINIAO_TRACKING_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

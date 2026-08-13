@@ -65,11 +65,11 @@ def tracking_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "CAINIAOTRACKING_TEST_TRACKING_ENTID" => {},
-    "CAINIAOTRACKING_TEST_LIVE" => "FALSE",
+    "CAINIAO_TRACKING_TEST_TRACKING_ENTID" => {},
+    "CAINIAO_TRACKING_TEST_LIVE" => "FALSE",
   })
 
-  live = env["CAINIAOTRACKING_TEST_LIVE"] == "TRUE"
+  live = env["CAINIAO_TRACKING_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

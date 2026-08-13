@@ -116,10 +116,13 @@ const tracking = client.Tracking()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `Record<string, any>` | No |  |
-| `error_code` | `string` | No |  |
-| `error_msg` | `string` | No |  |
-| `success` | `boolean` | No |  |
+| `destCountry` | `string` | No |  |
+| `latestTrackingInfo` | `Record<string, any>` | No |  |
+| `mailNo` | `string` | No |  |
+| `originCountry` | `string` | No |  |
+| `status` | `string` | No |  |
+| `statusDescription` | `string` | No |  |
+| `trackingList` | `any[]` | No |  |
 
 ### Operations
 

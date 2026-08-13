@@ -34,7 +34,7 @@ client = CainiaoTrackingSDK.new
 
 ```ruby
 begin
-  # load returns the bare Tracking record (raises on error).
+  # load returns the ENTITY — call data_get for the Tracking record (raises on error).
   tracking = client.Tracking.load()
   puts tracking
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = CainiaoTrackingSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 tracking = client.Tracking.load()
 puts tracking
 ```
@@ -234,10 +235,13 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `error_code` |  |
-| `error_msg` |  |
-| `success` |  |
+| `destCountry` |  |
+| `latestTrackingInfo` |  |
+| `mailNo` |  |
+| `originCountry` |  |
+| `status` |  |
+| `statusDescription` |  |
+| `trackingList` |  |
 
 Operations: Load.
 
@@ -262,15 +266,18 @@ Create an instance: `tracking = client.Tracking`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Hash` |  |
-| `error_code` | `String` |  |
-| `error_msg` | `String` |  |
-| `success` | `Boolean` |  |
+| `destCountry` | `String` |  |
+| `latestTrackingInfo` | `Hash` |  |
+| `mailNo` | `String` |  |
+| `originCountry` | `String` |  |
+| `status` | `String` |  |
+| `statusDescription` | `String` |  |
+| `trackingList` | `Array` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Tracking record (raises on error).
+# load returns the ENTITY — call data_get for the Tracking record (raises on error).
 tracking = client.Tracking.load()
 ```
 

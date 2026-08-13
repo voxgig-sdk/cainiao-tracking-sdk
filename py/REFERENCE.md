@@ -87,10 +87,13 @@ tracking = client.Tracking()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `dict` | No |  |
-| `error_code` | `str` | No |  |
-| `error_msg` | `str` | No |  |
-| `success` | `bool` | No |  |
+| `destCountry` | `str` | No |  |
+| `latestTrackingInfo` | `dict` | No |  |
+| `mailNo` | `str` | No |  |
+| `originCountry` | `str` | No |  |
+| `status` | `str` | No |  |
+| `statusDescription` | `str` | No |  |
+| `trackingList` | `list` | No |  |
 
 ### Operations
 

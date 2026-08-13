@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CainiaoTrackingControl
-from core.error import CainiaoTrackingError
-from core.result import CainiaoTrackingResult
-from core.spec import CainiaoTrackingSpec
+from cainiaotracking_sdk.config import make_config
+from cainiaotracking_sdk.features import _make_feature
+from cainiaotracking_sdk.core.control import CainiaoTrackingControl
+from cainiaotracking_sdk.core.error import CainiaoTrackingError
+from cainiaotracking_sdk.core.result import CainiaoTrackingResult
+from cainiaotracking_sdk.core.spec import CainiaoTrackingSpec
 
 
 # True when this SDK was generated with the named feature.

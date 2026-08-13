@@ -35,7 +35,7 @@ $client = new CainiaoTrackingSDK();
 
 ```php
 try {
-    // load() returns the bare Tracking record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Tracking record (throws on error).
     $tracking = $client->Tracking()->load();
     print_r($tracking);
 } catch (\Throwable $err) {
@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = CainiaoTrackingSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $tracking = $client->Tracking()->load();
 print_r($tracking);
 ```
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -244,10 +245,13 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `error_code` |  |
-| `error_msg` |  |
-| `success` |  |
+| `destCountry` |  |
+| `latestTrackingInfo` |  |
+| `mailNo` |  |
+| `originCountry` |  |
+| `status` |  |
+| `statusDescription` |  |
+| `trackingList` |  |
 
 Operations: Load.
 
@@ -272,15 +276,18 @@ Create an instance: `$tracking = $client->Tracking();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `array` |  |
-| `error_code` | `string` |  |
-| `error_msg` | `string` |  |
-| `success` | `bool` |  |
+| `destCountry` | `string` |  |
+| `latestTrackingInfo` | `array` |  |
+| `mailNo` | `string` |  |
+| `originCountry` | `string` |  |
+| `status` | `string` |  |
+| `statusDescription` | `string` |  |
+| `trackingList` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Tracking record (throws on error).
+// load() returns the ENTITY — call data_get() for the Tracking record (throws on error).
 $tracking = $client->Tracking()->load();
 ```
 

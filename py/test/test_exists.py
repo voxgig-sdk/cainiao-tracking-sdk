@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# CainiaoTracking SDK exists test
 
 import pytest
 from cainiaotracking_sdk import CainiaoTrackingSDK

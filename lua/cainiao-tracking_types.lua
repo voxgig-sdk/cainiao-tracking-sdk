@@ -7,16 +7,22 @@
 -- edit by hand.
 
 ---@class Tracking
----@field data? table
----@field error_code? string
----@field error_msg? string
----@field success? boolean
+---@field destCountry? string
+---@field latestTrackingInfo? table
+---@field mailNo? string
+---@field originCountry? string
+---@field status? string
+---@field statusDescription? string
+---@field trackingList? table
 
 ---@class TrackingLoadMatch
----@field data? table
----@field error_code? string
----@field error_msg? string
----@field success? boolean
+---@field destCountry? string
+---@field latestTrackingInfo? table
+---@field mailNo? string
+---@field originCountry? string
+---@field status? string
+---@field statusDescription? string
+---@field trackingList? table
 
 local M = {}
 

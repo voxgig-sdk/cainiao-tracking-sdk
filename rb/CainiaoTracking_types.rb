@@ -10,43 +10,67 @@
 
 # Tracking entity data model.
 #
-# @!attribute [rw] data
+# @!attribute [rw] destCountry
+#   @return [String, nil]
+#
+# @!attribute [rw] latestTrackingInfo
 #   @return [Hash, nil]
 #
-# @!attribute [rw] error_code
+# @!attribute [rw] mailNo
 #   @return [String, nil]
 #
-# @!attribute [rw] error_msg
+# @!attribute [rw] originCountry
 #   @return [String, nil]
 #
-# @!attribute [rw] success
-#   @return [Boolean, nil]
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] statusDescription
+#   @return [String, nil]
+#
+# @!attribute [rw] trackingList
+#   @return [Array, nil]
 Tracking = Struct.new(
-  :data,
-  :error_code,
-  :error_msg,
-  :success,
+  :destCountry,
+  :latestTrackingInfo,
+  :mailNo,
+  :originCountry,
+  :status,
+  :statusDescription,
+  :trackingList,
   keyword_init: true
 )
 
 # Request payload for Tracking#load.
 #
-# @!attribute [rw] data
+# @!attribute [rw] destCountry
+#   @return [String, nil]
+#
+# @!attribute [rw] latestTrackingInfo
 #   @return [Hash, nil]
 #
-# @!attribute [rw] error_code
+# @!attribute [rw] mailNo
 #   @return [String, nil]
 #
-# @!attribute [rw] error_msg
+# @!attribute [rw] originCountry
 #   @return [String, nil]
 #
-# @!attribute [rw] success
-#   @return [Boolean, nil]
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] statusDescription
+#   @return [String, nil]
+#
+# @!attribute [rw] trackingList
+#   @return [Array, nil]
 TrackingLoadMatch = Struct.new(
-  :data,
-  :error_code,
-  :error_msg,
-  :success,
+  :destCountry,
+  :latestTrackingInfo,
+  :mailNo,
+  :originCountry,
+  :status,
+  :statusDescription,
+  :trackingList,
   keyword_init: true
 )
 

@@ -38,7 +38,7 @@ client = CainiaoTrackingSDK()
 
 ### 3. Load a tracking
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CainiaoTrackingSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 tracking = client.Tracking().load()
 # tracking contains the mock response record
 ```
@@ -218,7 +219,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -240,10 +241,13 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `error_code` |  |
-| `error_msg` |  |
-| `success` |  |
+| `destCountry` |  |
+| `latestTrackingInfo` |  |
+| `mailNo` |  |
+| `originCountry` |  |
+| `status` |  |
+| `statusDescription` |  |
+| `trackingList` |  |
 
 Operations: Load.
 
@@ -268,10 +272,13 @@ Create an instance: `tracking = client.Tracking()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `dict` |  |
-| `error_code` | `str` |  |
-| `error_msg` | `str` |  |
-| `success` | `bool` |  |
+| `destCountry` | `str` |  |
+| `latestTrackingInfo` | `dict` |  |
+| `mailNo` | `str` |  |
+| `originCountry` | `str` |  |
+| `status` | `str` |  |
+| `statusDescription` | `str` |  |
+| `trackingList` | `list` |  |
 
 #### Example: Load
 

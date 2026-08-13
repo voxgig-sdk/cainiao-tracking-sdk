@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CainiaoTrackingSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CainiaoTrackingSDK.test({
+  entity: {
+    tracking: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const tracking = await client.Tracking().load()
-// tracking is a bare Tracking populated with mock data
+// tracking is the Tracking entity, populated with mock data
+// — call tracking.data() for the record itself
 console.log(tracking)
 ```
 
@@ -182,7 +191,7 @@ require_once 'cainiaotracking_sdk.php';
 $client = new CainiaoTrackingSDK();
 
 
-// Load a specific tracking (returns the bare record; throws on error)
+// Load a specific tracking (returns the ENTITY; call data_get() for the record; throws on error)
 $tracking = $client->Tracking()->load();
 print_r($tracking);
 ```
@@ -210,7 +219,7 @@ require_relative "CainiaoTracking_sdk"
 client = CainiaoTrackingSDK.new
 
 
-# Load a specific tracking (returns the bare record; raises on error)
+# Load a specific tracking (returns the ENTITY; call data_get for the record)
 tracking = client.Tracking.load()
 puts tracking
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://github.com/l0v3m0n3y/cainiao](https://github.com/l0v3m0n3y/cainiao)
 

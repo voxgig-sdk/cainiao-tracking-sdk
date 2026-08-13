@@ -43,8 +43,8 @@ class CainiaoTrackingTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('CAINIAOTRACKING_TEST_LIVE');
-        $override = self::getenv('CAINIAOTRACKING_TEST_OVERRIDE');
+        $live = self::getenv('CAINIAO_TRACKING_TEST_LIVE');
+        $override = self::getenv('CAINIAO_TRACKING_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class CainiaoTrackingTestRunner
             }
         }
 
-        $explain = self::getenv('CAINIAOTRACKING_TEST_EXPLAIN');
+        $explain = self::getenv('CAINIAO_TRACKING_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['CAINIAOTRACKING_TEST_EXPLAIN'] = $explain;
+            $m['CAINIAO_TRACKING_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

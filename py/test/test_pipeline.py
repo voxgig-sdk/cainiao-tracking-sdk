@@ -16,11 +16,11 @@
 import pytest
 
 from cainiaotracking_sdk import CainiaoTrackingSDK
-from core.error import CainiaoTrackingError
-from core.result import CainiaoTrackingResult
-from core.response import CainiaoTrackingResponse
-from core.spec import CainiaoTrackingSpec
-from feature.base_feature import CainiaoTrackingBaseFeature
+from cainiaotracking_sdk.core.error import CainiaoTrackingError
+from cainiaotracking_sdk.core.result import CainiaoTrackingResult
+from cainiaotracking_sdk.core.response import CainiaoTrackingResponse
+from cainiaotracking_sdk.core.spec import CainiaoTrackingSpec
+from cainiaotracking_sdk.feature.base_feature import CainiaoTrackingBaseFeature
 
 
 def _client():

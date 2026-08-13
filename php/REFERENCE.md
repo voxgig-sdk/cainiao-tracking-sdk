@@ -92,10 +92,13 @@ $tracking = $client->Tracking();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `array` | No |  |
-| `error_code` | `string` | No |  |
-| `error_msg` | `string` | No |  |
-| `success` | `bool` | No |  |
+| `destCountry` | `string` | No |  |
+| `latestTrackingInfo` | `array` | No |  |
+| `mailNo` | `string` | No |  |
+| `originCountry` | `string` | No |  |
+| `status` | `string` | No |  |
+| `statusDescription` | `string` | No |  |
+| `trackingList` | `array` | No |  |
 
 ### Operations
 

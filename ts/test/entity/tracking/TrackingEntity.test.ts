@@ -26,8 +26,8 @@ import {
 describe('TrackingEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CAINIAOTRACKING_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CAINIAOTRACKING_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CAINIAO_TRACKING_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CAINIAO_TRACKING_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CainiaoTrackingSDK.test()
@@ -62,7 +62,7 @@ describe('TrackingEntity', async () => {
     // LOAD
     const tracking_ref01_ent = client.Tracking()
     const tracking_ref01_match_dt0: any = {}
-    const tracking_ref01_data_dt0 = await tracking_ref01_ent.load(tracking_ref01_match_dt0)
+    const tracking_ref01_data_dt0 = (await tracking_ref01_ent.load(tracking_ref01_match_dt0)).data()
     assert(null != tracking_ref01_data_dt0)
 
 

@@ -15,18 +15,24 @@ declare(strict_types=1);
 /** Tracking entity data model. */
 class Tracking
 {
-    public ?array $data = null;
-    public ?string $error_code = null;
-    public ?string $error_msg = null;
-    public ?bool $success = null;
+    public ?string $destCountry = null;
+    public ?array $latestTrackingInfo = null;
+    public ?string $mailNo = null;
+    public ?string $originCountry = null;
+    public ?string $status = null;
+    public ?string $statusDescription = null;
+    public ?array $trackingList = null;
 }
 
 /** Request payload for Tracking#load. */
 class TrackingLoadMatch
 {
-    public ?array $data = null;
-    public ?string $error_code = null;
-    public ?string $error_msg = null;
-    public ?bool $success = null;
+    public ?string $destCountry = null;
+    public ?array $latestTrackingInfo = null;
+    public ?string $mailNo = null;
+    public ?string $originCountry = null;
+    public ?string $status = null;
+    public ?string $statusDescription = null;
+    public ?array $trackingList = null;
 }
 

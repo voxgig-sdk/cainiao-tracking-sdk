@@ -6,24 +6,39 @@ main: kit: entity: tracking: {
 
   fields: [
     {
-      name: "data"
+      name: "destCountry"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "latestTrackingInfo"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "error_code"
+      name: "mailNo"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "error_msg"
+      name: "originCountry"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "success"
+      name: "status"
       req: false
-      type: "`$BOOLEAN`"
+      type: "`$STRING`"
+    }
+    {
+      name: "statusDescription"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "trackingList"
+      req: false
+      type: "`$ARRAY`"
     }
   ]
 
@@ -76,7 +91,7 @@ main: kit: entity: tracking: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

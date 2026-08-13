@@ -66,11 +66,11 @@ function tracking_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["CAINIAOTRACKING_TEST_TRACKING_ENTID"] = {},
-    ["CAINIAOTRACKING_TEST_LIVE"] = "FALSE",
+    ["CAINIAO_TRACKING_TEST_TRACKING_ENTID"] = {},
+    ["CAINIAO_TRACKING_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["CAINIAOTRACKING_TEST_LIVE"] == "TRUE"
+  local live = env["CAINIAO_TRACKING_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

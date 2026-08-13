@@ -6,16 +6,22 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Tracking {
-  data?: Record<string, any>
-  error_code?: string
-  error_msg?: string
-  success?: boolean
+  destCountry?: string
+  latestTrackingInfo?: Record<string, any>
+  mailNo?: string
+  originCountry?: string
+  status?: string
+  statusDescription?: string
+  trackingList?: any[]
 }
 
 export interface TrackingLoadMatch {
-  data?: Record<string, any>
-  error_code?: string
-  error_msg?: string
-  success?: boolean
+  destCountry?: string
+  latestTrackingInfo?: Record<string, any>
+  mailNo?: string
+  originCountry?: string
+  status?: string
+  statusDescription?: string
+  trackingList?: any[]
 }
 

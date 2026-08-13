@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = CainiaoTrackingSDK.test()
 
 const tracking = await client.Tracking().load()
-// tracking is a bare entity populated with mock response data
+// tracking is the entity, populated with mock response data
+// — call tracking.data() for the record itself
 console.log(tracking)
 ```
 
@@ -284,10 +285,13 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `error_code` |  |
-| `error_msg` |  |
-| `success` |  |
+| `destCountry` |  |
+| `latestTrackingInfo` |  |
+| `mailNo` |  |
+| `originCountry` |  |
+| `status` |  |
+| `statusDescription` |  |
+| `trackingList` |  |
 
 Operations: load.
 
@@ -312,10 +316,13 @@ Create an instance: `const tracking = client.Tracking()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Record<string, any>` |  |
-| `error_code` | `string` |  |
-| `error_msg` | `string` |  |
-| `success` | `boolean` |  |
+| `destCountry` | `string` |  |
+| `latestTrackingInfo` | `Record<string, any>` |  |
+| `mailNo` | `string` |  |
+| `originCountry` | `string` |  |
+| `status` | `string` |  |
+| `statusDescription` | `string` |  |
+| `trackingList` | `any[]` |  |
 
 #### Example: Load
 

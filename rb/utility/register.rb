@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ CainiaoTrackingUtility.registrar = ->(u) {
   u.prepare_params = CainiaoTrackingUtilities::PrepareParams
   u.prepare_path = CainiaoTrackingUtilities::PreparePath
   u.prepare_query = CainiaoTrackingUtilities::PrepareQuery
+  u.graphql_body = CainiaoTrackingUtilities::GraphqlBody
+  u.graphql_errors = CainiaoTrackingUtilities::GraphqlErrors
   u.result_basic = CainiaoTrackingUtilities::ResultBasic
   u.result_body = CainiaoTrackingUtilities::ResultBody
   u.result_headers = CainiaoTrackingUtilities::ResultHeaders

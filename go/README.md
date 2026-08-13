@@ -258,10 +258,13 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"data"` |  |
-| `"error_code"` |  |
-| `"error_msg"` |  |
-| `"success"` |  |
+| `"destCountry"` |  |
+| `"latestTrackingInfo"` |  |
+| `"mailNo"` |  |
+| `"originCountry"` |  |
+| `"status"` |  |
+| `"statusDescription"` |  |
+| `"trackingList"` |  |
 
 Operations: Load.
 
@@ -286,10 +289,13 @@ Create an instance: `tracking := client.Tracking(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `map[string]any` |  |
-| `error_code` | `string` |  |
-| `error_msg` | `string` |  |
-| `success` | `bool` |  |
+| `destCountry` | `string` |  |
+| `latestTrackingInfo` | `map[string]any` |  |
+| `mailNo` | `string` |  |
+| `originCountry` | `string` |  |
+| `status` | `string` |  |
+| `statusDescription` | `string` |  |
+| `trackingList` | `[]any` |  |
 
 #### Example: Load
 

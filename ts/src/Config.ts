@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'CainiaoTracking',
   }
 
 
@@ -56,31 +56,52 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "data",
+          "name": "destCountry",
           "req": false,
-          "type": "`$OBJECT`",
+          "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "error_code",
+          "name": "latestTrackingInfo",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$OBJECT`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "error_msg",
+          "name": "mailNo",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "success",
+          "name": "originCountry",
           "req": false,
-          "type": "`$BOOLEAN`",
+          "type": "`$STRING`",
           "index$": 3
+        },
+        {
+          "active": true,
+          "name": "status",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 4
+        },
+        {
+          "active": true,
+          "name": "statusDescription",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 5
+        },
+        {
+          "active": true,
+          "name": "trackingList",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 6
         }
       ],
       "name": "tracking",
@@ -122,6 +143,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/global/detail.json",
               "parts": [
@@ -137,7 +159,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "index$": 0
             }

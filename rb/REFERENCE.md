@@ -93,10 +93,13 @@ tracking = client.Tracking
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `Hash` | No |  |
-| `error_code` | `String` | No |  |
-| `error_msg` | `String` | No |  |
-| `success` | `Boolean` | No |  |
+| `destCountry` | `String` | No |  |
+| `latestTrackingInfo` | `Hash` | No |  |
+| `mailNo` | `String` | No |  |
+| `originCountry` | `String` | No |  |
+| `status` | `String` | No |  |
+| `statusDescription` | `String` | No |  |
+| `trackingList` | `Array` | No |  |
 
 ### Operations
 

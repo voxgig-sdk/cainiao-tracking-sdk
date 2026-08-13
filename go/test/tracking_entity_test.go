@@ -44,7 +44,7 @@ func TestTrackingEntity(t *testing.T) {
 		// The basic flow consumes synthetic IDs from the fixture. In live mode
 		// without an *_ENTID env override, those IDs hit the live API and 4xx.
 		if setup.syntheticOnly {
-			t.Skip("live entity test uses synthetic IDs from fixture — set CAINIAOTRACKING_TEST_TRACKING_ENTID JSON to run live")
+			t.Skip("live entity test uses synthetic IDs from fixture — set CAINIAO_TRACKING_TEST_TRACKING_ENTID JSON to run live")
 			return
 		}
 		client := setup.client
@@ -110,21 +110,21 @@ func trackingBasicSetup(extra map[string]any) *entityTestSetup {
 	// Detect ENTID env override before envOverride consumes it. When live
 	// mode is on without a real override, the basic test runs against synthetic
 	// IDs from the fixture and 4xx's. Surface this so the test can skip.
-	entidEnvRaw := os.Getenv("CAINIAOTRACKING_TEST_TRACKING_ENTID")
+	entidEnvRaw := os.Getenv("CAINIAO_TRACKING_TEST_TRACKING_ENTID")
 	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
 
 	env := envOverride(map[string]any{
-		"CAINIAOTRACKING_TEST_TRACKING_ENTID": idmap,
-		"CAINIAOTRACKING_TEST_LIVE":      "FALSE",
-		"CAINIAOTRACKING_TEST_EXPLAIN":   "FALSE",
+		"CAINIAO_TRACKING_TEST_TRACKING_ENTID": idmap,
+		"CAINIAO_TRACKING_TEST_LIVE":      "FALSE",
+		"CAINIAO_TRACKING_TEST_EXPLAIN":   "FALSE",
 	})
 
-	idmapResolved := core.ToMapAny(env["CAINIAOTRACKING_TEST_TRACKING_ENTID"])
+	idmapResolved := core.ToMapAny(env["CAINIAO_TRACKING_TEST_TRACKING_ENTID"])
 	if idmapResolved == nil {
 		idmapResolved = core.ToMapAny(idmap)
 	}
 
-	if env["CAINIAOTRACKING_TEST_LIVE"] == "TRUE" {
+	if env["CAINIAO_TRACKING_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
 			},
@@ -133,13 +133,13 @@ func trackingBasicSetup(extra map[string]any) *entityTestSetup {
 		client = sdk.NewCainiaoTrackingSDK(core.ToMapAny(mergedOpts))
 	}
 
-	live := env["CAINIAOTRACKING_TEST_LIVE"] == "TRUE"
+	live := env["CAINIAO_TRACKING_TEST_LIVE"] == "TRUE"
 	return &entityTestSetup{
 		client:        client,
 		data:          entityData,
 		idmap:         idmapResolved,
 		env:           env,
-		explain:       env["CAINIAOTRACKING_TEST_EXPLAIN"] == "TRUE",
+		explain:       env["CAINIAO_TRACKING_TEST_EXPLAIN"] == "TRUE",
 		live:          live,
 		syntheticOnly: live && !idmapOverridden,
 		now:           time.Now().UnixMilli(),
