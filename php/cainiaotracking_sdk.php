@@ -40,7 +40,7 @@ class CainiaoTrackingSDK
         $utility = new CainiaoTrackingUtility();
         $this->_utility = $utility;
 
-        $config = CainiaoTrackingConfig::make_config();
+        $config = CainiaoTrackingConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from cainiaotracking_sdk.config import make_config
+from cainiaotracking_sdk.config import shared_config
 from cainiaotracking_sdk.features import _make_feature
 from cainiaotracking_sdk.core.control import CainiaoTrackingControl
 from cainiaotracking_sdk.core.error import CainiaoTrackingError
@@ -24,7 +24,7 @@ from cainiaotracking_sdk.core.spec import CainiaoTrackingSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

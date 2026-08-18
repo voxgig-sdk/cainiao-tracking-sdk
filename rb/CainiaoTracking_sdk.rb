@@ -28,7 +28,7 @@ class CainiaoTrackingSDK
     utility = CainiaoTrackingUtility.new
     @_utility = utility
 
-    config = CainiaoTrackingConfig.make_config
+    config = CainiaoTrackingConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

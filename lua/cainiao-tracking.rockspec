@@ -23,6 +23,7 @@ build = {
   modules = {
     ["cainiao-tracking_sdk"] = "cainiao-tracking_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }
