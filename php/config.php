@@ -33,6 +33,9 @@ class CainiaoTrackingConfig
         return [
             "main" => [
                 "name" => "CainiaoTracking",
+                "slug" => "cainiao-tracking",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -55,6 +58,7 @@ class CainiaoTrackingConfig
           'fields' => [
             [
               'name' => 'destCountry',
+              'short' => 'Destination country code',
               'type' => '`$STRING`',
             ],
             [
@@ -63,22 +67,27 @@ class CainiaoTrackingConfig
             ],
             [
               'name' => 'mailNo',
+              'short' => 'The tracking number of the shipment',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'originCountry',
+              'short' => 'Origin country code',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'status',
+              'short' => 'Current status of the shipment',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'statusDescription',
+              'short' => 'Detailed description of the current status',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'trackingList',
+              'short' => 'Complete tracking history',
               'type' => '`$ARRAY`',
             ],
           ],

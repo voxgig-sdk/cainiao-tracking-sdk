@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'CainiaoTracking',
+        slug: "cainiao-tracking",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,6 +67,7 @@ class Config {
       "fields": [
         {
           "name": "destCountry",
+          "short": "Destination country code",
           "type": "`$STRING`"
         },
         {
@@ -64,22 +76,27 @@ class Config {
         },
         {
           "name": "mailNo",
+          "short": "The tracking number of the shipment",
           "type": "`$STRING`"
         },
         {
           "name": "originCountry",
+          "short": "Origin country code",
           "type": "`$STRING`"
         },
         {
           "name": "status",
+          "short": "Current status of the shipment",
           "type": "`$STRING`"
         },
         {
           "name": "statusDescription",
+          "short": "Detailed description of the current status",
           "type": "`$STRING`"
         },
         {
           "name": "trackingList",
+          "short": "Complete tracking history",
           "type": "`$ARRAY`"
         }
       ],

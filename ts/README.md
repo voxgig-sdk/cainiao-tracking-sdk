@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,13 +285,13 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `destCountry` |  |
+| `destCountry` | Destination country code |
 | `latestTrackingInfo` |  |
-| `mailNo` |  |
-| `originCountry` |  |
-| `status` |  |
-| `statusDescription` |  |
-| `trackingList` |  |
+| `mailNo` | The tracking number of the shipment |
+| `originCountry` | Origin country code |
+| `status` | Current status of the shipment |
+| `statusDescription` | Detailed description of the current status |
+| `trackingList` | Complete tracking history |
 
 Operations: load.
 
@@ -316,13 +316,13 @@ Create an instance: `const tracking = client.Tracking()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destCountry` | `string` |  |
+| `destCountry` | `string` | Destination country code |
 | `latestTrackingInfo` | `Record<string, any>` |  |
-| `mailNo` | `string` |  |
-| `originCountry` | `string` |  |
-| `status` | `string` |  |
-| `statusDescription` | `string` |  |
-| `trackingList` | `any[]` |  |
+| `mailNo` | `string` | The tracking number of the shipment |
+| `originCountry` | `string` | Origin country code |
+| `status` | `string` | Current status of the shipment |
+| `statusDescription` | `string` | Detailed description of the current status |
+| `trackingList` | `any[]` | Complete tracking history |
 
 #### Example: Load
 

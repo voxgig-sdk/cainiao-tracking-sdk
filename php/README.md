@@ -245,13 +245,13 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `destCountry` |  |
+| `destCountry` | Destination country code |
 | `latestTrackingInfo` |  |
-| `mailNo` |  |
-| `originCountry` |  |
-| `status` |  |
-| `statusDescription` |  |
-| `trackingList` |  |
+| `mailNo` | The tracking number of the shipment |
+| `originCountry` | Origin country code |
+| `status` | Current status of the shipment |
+| `statusDescription` | Detailed description of the current status |
+| `trackingList` | Complete tracking history |
 
 Operations: Load.
 
@@ -276,13 +276,13 @@ Create an instance: `$tracking = $client->Tracking();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destCountry` | `string` |  |
+| `destCountry` | `string` | Destination country code |
 | `latestTrackingInfo` | `array` |  |
-| `mailNo` | `string` |  |
-| `originCountry` | `string` |  |
-| `status` | `string` |  |
-| `statusDescription` | `string` |  |
-| `trackingList` | `array` |  |
+| `mailNo` | `string` | The tracking number of the shipment |
+| `originCountry` | `string` | Origin country code |
+| `status` | `string` | Current status of the shipment |
+| `statusDescription` | `string` | Detailed description of the current status |
+| `trackingList` | `array` | Complete tracking history |
 
 #### Example: Load
 

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "CainiaoTracking",
+			"slug": "cainiao-tracking",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,6 +36,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "destCountry",
+						"short": "Destination country code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -41,22 +45,27 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "mailNo",
+						"short": "The tracking number of the shipment",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "originCountry",
+						"short": "Origin country code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "Current status of the shipment",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "statusDescription",
+						"short": "Detailed description of the current status",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "trackingList",
+						"short": "Complete tracking history",
 						"type": "`$ARRAY`",
 					},
 				},

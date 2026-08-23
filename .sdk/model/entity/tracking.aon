@@ -8,6 +8,7 @@ main: kit: entity: tracking: {
     {
       name: "destCountry"
       req: false
+      short: "Destination country code"
       type: "`$STRING`"
     }
     {
@@ -18,26 +19,31 @@ main: kit: entity: tracking: {
     {
       name: "mailNo"
       req: false
+      short: "The tracking number of the shipment"
       type: "`$STRING`"
     }
     {
       name: "originCountry"
       req: false
+      short: "Origin country code"
       type: "`$STRING`"
     }
     {
       name: "status"
       req: false
+      short: "Current status of the shipment"
       type: "`$STRING`"
     }
     {
       name: "statusDescription"
       req: false
+      short: "Detailed description of the current status"
       type: "`$STRING`"
     }
     {
       name: "trackingList"
       req: false
+      short: "Complete tracking history"
       type: "`$ARRAY`"
     }
   ]

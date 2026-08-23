@@ -235,13 +235,13 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `destCountry` |  |
+| `destCountry` | Destination country code |
 | `latestTrackingInfo` |  |
-| `mailNo` |  |
-| `originCountry` |  |
-| `status` |  |
-| `statusDescription` |  |
-| `trackingList` |  |
+| `mailNo` | The tracking number of the shipment |
+| `originCountry` | Origin country code |
+| `status` | Current status of the shipment |
+| `statusDescription` | Detailed description of the current status |
+| `trackingList` | Complete tracking history |
 
 Operations: Load.
 
@@ -266,13 +266,13 @@ Create an instance: `tracking = client.Tracking`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destCountry` | `String` |  |
+| `destCountry` | `String` | Destination country code |
 | `latestTrackingInfo` | `Hash` |  |
-| `mailNo` | `String` |  |
-| `originCountry` | `String` |  |
-| `status` | `String` |  |
-| `statusDescription` | `String` |  |
-| `trackingList` | `Array` |  |
+| `mailNo` | `String` | The tracking number of the shipment |
+| `originCountry` | `String` | Origin country code |
+| `status` | `String` | Current status of the shipment |
+| `statusDescription` | `String` | Detailed description of the current status |
+| `trackingList` | `Array` | Complete tracking history |
 
 #### Example: Load
 

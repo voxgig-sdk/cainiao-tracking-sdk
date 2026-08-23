@@ -6,7 +6,7 @@ The Golang SDK for the CainiaoTracking API — an entity-oriented client using s
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Tracking(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,13 +258,13 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"destCountry"` |  |
+| `"destCountry"` | Destination country code |
 | `"latestTrackingInfo"` |  |
-| `"mailNo"` |  |
-| `"originCountry"` |  |
-| `"status"` |  |
-| `"statusDescription"` |  |
-| `"trackingList"` |  |
+| `"mailNo"` | The tracking number of the shipment |
+| `"originCountry"` | Origin country code |
+| `"status"` | Current status of the shipment |
+| `"statusDescription"` | Detailed description of the current status |
+| `"trackingList"` | Complete tracking history |
 
 Operations: Load.
 
@@ -289,13 +289,13 @@ Create an instance: `tracking := client.Tracking(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destCountry` | `string` |  |
+| `destCountry` | `string` | Destination country code |
 | `latestTrackingInfo` | `map[string]any` |  |
-| `mailNo` | `string` |  |
-| `originCountry` | `string` |  |
-| `status` | `string` |  |
-| `statusDescription` | `string` |  |
-| `trackingList` | `[]any` |  |
+| `mailNo` | `string` | The tracking number of the shipment |
+| `originCountry` | `string` | Origin country code |
+| `status` | `string` | Current status of the shipment |
+| `statusDescription` | `string` | Detailed description of the current status |
+| `trackingList` | `[]any` | Complete tracking history |
 
 #### Example: Load
 

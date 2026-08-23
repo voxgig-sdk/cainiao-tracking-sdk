@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "CainiaoTracking",
+            "slug": "cainiao-tracking",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -50,6 +53,7 @@ def make_config():
         "fields": [
           {
             "name": "destCountry",
+            "short": "Destination country code",
             "type": "`$STRING`",
           },
           {
@@ -58,22 +62,27 @@ def make_config():
           },
           {
             "name": "mailNo",
+            "short": "The tracking number of the shipment",
             "type": "`$STRING`",
           },
           {
             "name": "originCountry",
+            "short": "Origin country code",
             "type": "`$STRING`",
           },
           {
             "name": "status",
+            "short": "Current status of the shipment",
             "type": "`$STRING`",
           },
           {
             "name": "statusDescription",
+            "short": "Detailed description of the current status",
             "type": "`$STRING`",
           },
           {
             "name": "trackingList",
+            "short": "Complete tracking history",
             "type": "`$ARRAY`",
           },
         ],

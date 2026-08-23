@@ -87,13 +87,13 @@ tracking = client.Tracking()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `destCountry` | `str` | No |  |
+| `destCountry` | `str` | No | Destination country code |
 | `latestTrackingInfo` | `dict` | No |  |
-| `mailNo` | `str` | No |  |
-| `originCountry` | `str` | No |  |
-| `status` | `str` | No |  |
-| `statusDescription` | `str` | No |  |
-| `trackingList` | `list` | No |  |
+| `mailNo` | `str` | No | The tracking number of the shipment |
+| `originCountry` | `str` | No | Origin country code |
+| `status` | `str` | No | Current status of the shipment |
+| `statusDescription` | `str` | No | Detailed description of the current status |
+| `trackingList` | `list` | No | Complete tracking history |
 
 ### Operations
 

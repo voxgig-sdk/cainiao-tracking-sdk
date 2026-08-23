@@ -92,13 +92,13 @@ $tracking = $client->Tracking();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `destCountry` | `string` | No |  |
+| `destCountry` | `string` | No | Destination country code |
 | `latestTrackingInfo` | `array` | No |  |
-| `mailNo` | `string` | No |  |
-| `originCountry` | `string` | No |  |
-| `status` | `string` | No |  |
-| `statusDescription` | `string` | No |  |
-| `trackingList` | `array` | No |  |
+| `mailNo` | `string` | No | The tracking number of the shipment |
+| `originCountry` | `string` | No | Origin country code |
+| `status` | `string` | No | Current status of the shipment |
+| `statusDescription` | `string` | No | Detailed description of the current status |
+| `trackingList` | `array` | No | Complete tracking history |
 
 ### Operations
 

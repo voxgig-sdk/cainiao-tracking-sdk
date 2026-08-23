@@ -36,6 +36,7 @@
               "active": true,
               "name": "destCountry",
               "req": false,
+              "short": "Destination country code",
               "type": "`$STRING`"
             },
             {
@@ -48,30 +49,35 @@
               "active": true,
               "name": "mailNo",
               "req": false,
+              "short": "The tracking number of the shipment",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "originCountry",
               "req": false,
+              "short": "Origin country code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "status",
               "req": false,
+              "short": "Current status of the shipment",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "statusDescription",
               "req": false,
+              "short": "Detailed description of the current status",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "trackingList",
               "req": false,
+              "short": "Complete tracking history",
               "type": "`$ARRAY`"
             }
           ],
