@@ -26,11 +26,10 @@ class Tracking(TypedDict, total=False):
     trackingList: list
 
 
-class TrackingLoadMatch(TypedDict, total=False):
-    destCountry: str
-    latestTrackingInfo: dict
-    mailNo: str
-    originCountry: str
-    status: str
-    statusDescription: str
-    trackingList: list
+class TrackingLoadMatchRequired(TypedDict):
+    mail_no: str
+
+
+class TrackingLoadMatch(TrackingLoadMatchRequired, total=False):
+    lang: str
+    language: str

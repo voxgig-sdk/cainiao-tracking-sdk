@@ -16,12 +16,8 @@ export interface Tracking {
 }
 
 export interface TrackingLoadMatch {
-  destCountry?: string
-  latestTrackingInfo?: Record<string, any>
-  mailNo?: string
-  originCountry?: string
-  status?: string
-  statusDescription?: string
-  trackingList?: any[]
+  lang?: string
+  language?: string
+  mail_no: string
 }
 

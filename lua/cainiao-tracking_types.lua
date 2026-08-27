@@ -16,13 +16,9 @@
 ---@field trackingList? table
 
 ---@class TrackingLoadMatch
----@field destCountry? string
----@field latestTrackingInfo? table
----@field mailNo? string
----@field originCountry? string
----@field status? string
----@field statusDescription? string
----@field trackingList? table
+---@field lang? string
+---@field language? string
+---@field mail_no string
 
 local M = {}
 

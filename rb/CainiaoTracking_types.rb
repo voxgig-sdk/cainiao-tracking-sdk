@@ -43,34 +43,18 @@ Tracking = Struct.new(
 
 # Request payload for Tracking#load.
 #
-# @!attribute [rw] destCountry
+# @!attribute [rw] lang
 #   @return [String, nil]
 #
-# @!attribute [rw] latestTrackingInfo
-#   @return [Hash, nil]
-#
-# @!attribute [rw] mailNo
+# @!attribute [rw] language
 #   @return [String, nil]
 #
-# @!attribute [rw] originCountry
-#   @return [String, nil]
-#
-# @!attribute [rw] status
-#   @return [String, nil]
-#
-# @!attribute [rw] statusDescription
-#   @return [String, nil]
-#
-# @!attribute [rw] trackingList
-#   @return [Array, nil]
+# @!attribute [rw] mail_no
+#   @return [String]
 TrackingLoadMatch = Struct.new(
-  :destCountry,
-  :latestTrackingInfo,
-  :mailNo,
-  :originCountry,
-  :status,
-  :statusDescription,
-  :trackingList,
+  :lang,
+  :language,
+  :mail_no,
   keyword_init: true
 )
 

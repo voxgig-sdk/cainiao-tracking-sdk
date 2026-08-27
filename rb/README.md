@@ -35,7 +35,7 @@ client = CainiaoTrackingSDK.new
 ```ruby
 begin
   # load returns the ENTITY — call data_get for the Tracking record (raises on error).
-  tracking = client.Tracking.load()
+  tracking = client.Tracking.load({ "mail_no" => "example_mail_no" })
   puts tracking
 rescue => err
   warn "load failed: #{err}"
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  tracking = client.Tracking.load()
+  tracking = client.Tracking.load({ "mail_no" => "example" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -119,7 +119,7 @@ client = CainiaoTrackingSDK.test
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-tracking = client.Tracking.load()
+tracking = client.Tracking.load({ "mail_no" => "example" })
 puts tracking
 ```
 
@@ -278,8 +278,31 @@ Create an instance: `tracking = client.Tracking`
 
 ```ruby
 # load returns the ENTITY — call data_get for the Tracking record (raises on error).
-tracking = client.Tracking.load()
+tracking = client.Tracking.load({ "mail_no" => "mail_no" })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -359,7 +382,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 tracking = client.Tracking
-tracking.load()
+tracking.load({ "mail_no" => "example" })
 
 # tracking.data_get now returns the tracking data from the last load
 # tracking.match_get returns the last match criteria

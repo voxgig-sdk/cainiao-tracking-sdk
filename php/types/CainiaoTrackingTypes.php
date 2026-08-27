@@ -27,12 +27,8 @@ class Tracking
 /** Request payload for Tracking#load. */
 class TrackingLoadMatch
 {
-    public ?string $destCountry = null;
-    public ?array $latestTrackingInfo = null;
-    public ?string $mailNo = null;
-    public ?string $originCountry = null;
-    public ?string $status = null;
-    public ?string $statusDescription = null;
-    public ?array $trackingList = null;
+    public ?string $lang = null;
+    public ?string $language = null;
+    public string $mail_no;
 }
 

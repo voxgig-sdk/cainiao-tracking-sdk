@@ -25,13 +25,9 @@ type Tracking struct {
 
 // TrackingLoadMatch is the typed request payload for Tracking.LoadTyped.
 type TrackingLoadMatch struct {
-	DestCountry *string `json:"destCountry,omitempty"`
-	LatestTrackingInfo *map[string]any `json:"latestTrackingInfo,omitempty"`
-	MailNo *string `json:"mailNo,omitempty"`
-	OriginCountry *string `json:"originCountry,omitempty"`
-	Status *string `json:"status,omitempty"`
-	StatusDescription *string `json:"statusDescription,omitempty"`
-	TrackingList *[]any `json:"trackingList,omitempty"`
+	Lang *string `json:"lang,omitempty"`
+	Language *string `json:"language,omitempty"`
+	MailNo string `json:"mail_no"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the
