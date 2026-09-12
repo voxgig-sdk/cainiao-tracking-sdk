@@ -128,9 +128,13 @@ class CainiaoTrackingConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/global/detail.json',
-                  'parts' => [
-                    'global',
-                    'detail.json',
+                  'segments' => [
+                    [
+                      'lit' => 'global',
+                    ],
+                    [
+                      'lit' => 'detail.json',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -142,6 +146,10 @@ class CainiaoTrackingConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'global',
+                    'detail.json',
                   ],
                 ],
               ],

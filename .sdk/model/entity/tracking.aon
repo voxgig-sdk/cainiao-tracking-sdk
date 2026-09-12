@@ -84,9 +84,13 @@ main: kit: entity: tracking: {
           }
           method: "GET"
           orig: "/global/detail.json"
-          parts: [
-            "global"
-            "detail.json"
+          segments: [
+            {
+              lit: "global"
+            }
+            {
+              lit: "detail.json"
+            }
           ]
           select: {
             exist: [
