@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/cainiao-tracking",
+  "name": "@voxgig-sdk/cainiao-tracking-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the Cainiao Tracking public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [

@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CainiaoTrackingSDK } from '@voxgig-sdk/cainiao-tracking'
+import { CainiaoTrackingSDK } from '@voxgig-sdk/cainiao-tracking-sdk'
 
 const client = new CainiaoTrackingSDK()
 ```
@@ -413,7 +413,7 @@ cainiao-tracking/
 Import the SDK from the package root:
 
 ```ts
-import { CainiaoTrackingSDK } from '@voxgig-sdk/cainiao-tracking'
+import { CainiaoTrackingSDK } from '@voxgig-sdk/cainiao-tracking-sdk'
 ```
 
 ### Entity state

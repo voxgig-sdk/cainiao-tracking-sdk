@@ -105,7 +105,7 @@ local result, err = client:Tracking():load({ mail_no = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/cainiao-tracking` | publish pending — [install from git tag](https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases) |
+| TypeScript | `@voxgig-sdk/cainiao-tracking-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases) |
 | Python | `voxgig-sdk-cainiao-tracking` | publish pending — [install from git tag](https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases) |
 | PHP | `voxgig-sdk/cainiao-tracking` | publish pending — [install from git tag](https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/cainiao-tracking-sdk/go` | `go get github.com/voxgig-sdk/cainiao-tracking-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Tracking():load({ mail_no = "example" })
 ### TypeScript
 
 ```ts
-import { CainiaoTrackingSDK } from '@voxgig-sdk/cainiao-tracking'
+import { CainiaoTrackingSDK } from '@voxgig-sdk/cainiao-tracking-sdk'
 
 const client = new CainiaoTrackingSDK()
 
