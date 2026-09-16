@@ -1,12 +1,18 @@
 # CainiaoTracking SDK feature factory
 
 from cainiaotracking_sdk.feature.base_feature import CainiaoTrackingBaseFeature
+from cainiaotracking_sdk.feature.ratelimit_feature import CainiaoTrackingRatelimitFeature
+from cainiaotracking_sdk.feature.retry_feature import CainiaoTrackingRetryFeature
 from cainiaotracking_sdk.feature.test_feature import CainiaoTrackingTestFeature
+from cainiaotracking_sdk.feature.timeout_feature import CainiaoTrackingTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: CainiaoTrackingBaseFeature(),
+    "ratelimit": lambda: CainiaoTrackingRatelimitFeature(),
+    "retry": lambda: CainiaoTrackingRetryFeature(),
     "test": lambda: CainiaoTrackingTestFeature(),
+    "timeout": lambda: CainiaoTrackingTimeoutFeature(),
 }
 
 

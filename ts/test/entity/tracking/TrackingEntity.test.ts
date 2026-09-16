@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { CainiaoTrackingSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('TrackingEntity', async () => {
 
     const live = 'TRUE' === process.env.CAINIAO_TRACKING_TEST_LIVE
     for (const op of ['load']) {
-      if (maybeSkipControl(t, 'entityOp', 'tracking.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'tracking.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set CAINIAO_TRACKING_TEST_TRACKING_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"destCountry","req":false,"short":"Destination country code","type":"`$STRING`","index$":0},{"active":true,"name":"latestTrackingInfo","req":false,"type":"`$OBJECT`","index$":1},{"active":true,"name":"mailNo","req":false,"short":"The tracking number of the shipment","type":"`$STRING`","index$":2},{"active":true,"name":"originCountry","req":false,"short":"Origin country code","type":"`$STRING`","index$":3},{"active":true,"name":"status","req":false,"short":"Current status of the shipment","type":"`$STRING`","index$":4},{"active":true,"name":"statusDescription","req":false,"short":"Detailed description of the current status","type":"`$STRING`","index$":5},{"active":true,"name":"trackingList","req":false,"short":"Complete tracking history","type":"`$ARRAY`","index$":6}],"name":"tracking","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{"query":[{"active":true,"example":"en-US","kind":"query","name":"lang","orig":"lang","reqd":false,"type":"`$STRING`","index$":0},{"active":true,"example":"en-US","kind":"query","name":"language","orig":"language","reqd":false,"type":"`$STRING`","index$":1},{"active":true,"example":"ZH363796677HK","kind":"query","name":"mail_no","orig":"mail_no","reqd":true,"type":"`$STRING`","index$":2}]},"contract":{"id":"GET /global/detail.json","json":"{\"operationId\":\"getTrackingDetail\",\"parameters\":[{\"description\":\"Tracking number(s) for the shipment(s). Multiple tracking numbers can be provided separated by commas.\",\"example\":\"ZH363796677HK\",\"in\":\"query\",\"name\":\"mailNos\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Language code for the response (e.g., en-US, zh-CN, fr-FR)\",\"example\":\"en-US\",\"in\":\"query\",\"name\":\"lang\",\"required\":false,\"schema\":{\"default\":\"en-US\",\"type\":\"string\"}},{\"description\":\"Alternative language parameter for response localization\",\"example\":\"en-US\",\"in\":\"query\",\"name\":\"language\",\"required\":false,\"schema\":{\"default\":\"en-US\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"data\":{\"destCountry\":\"US\",\"latestTrackingInfo\":{\"desc\":\"Delivered\",\"location\":\"New York, US\",\"time\":\"2024-01-15T10:30:00Z\"},\"mailNo\":\"ZH363796677HK\",\"originCountry\":\"CN\",\"status\":\"DELIVERED\",\"statusDescription\":\"Package delivered successfully\",\"trackingList\":[{\"desc\":\"Delivered\",\"location\":\"New York, US\",\"status\":\"DELIVERED\",\"time\":\"2024-01-15T10:30:00Z\"},{\"desc\":\"Out for delivery\",\"location\":\"New York, US\",\"status\":\"IN_TRANSIT\",\"time\":\"2024-01-14T08:00:00Z\"}]},\"success\":true},\"schema\":{\"properties\":{\"data\":{\"properties\":{\"destCountry\":{\"description\":\"Destination country code\",\"type\":\"string\"},\"latestTrackingInfo\":{\"properties\":{\"desc\":{\"description\":\"Description of the latest tracking event\",\"type\":\"string\"},\"location\":{\"description\":\"Location of the latest tracking event\",\"type\":\"string\"},\"time\":{\"description\":\"Timestamp of the latest tracking event\",\"format\":\"date-time\",\"type\":\"string\"}},\"type\":\"object\"},\"mailNo\":{\"description\":\"The tracking number of the shipment\",\"type\":\"string\"},\"originCountry\":{\"description\":\"Origin country code\",\"type\":\"string\"},\"status\":{\"description\":\"Current status of the shipment\",\"type\":\"string\"},\"statusDescription\":{\"description\":\"Detailed description of the current status\",\"type\":\"string\"},\"trackingList\":{\"description\":\"Complete tracking history\",\"items\":{\"properties\":{\"desc\":{\"description\":\"Description of the tracking event\",\"type\":\"string\"},\"location\":{\"description\":\"Location of the tracking event\",\"type\":\"string\"},\"status\":{\"description\":\"Status at this tracking point\",\"type\":\"string\"},\"time\":{\"description\":\"Timestamp of the tracking event\",\"format\":\"date-time\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"errorCode\":{\"description\":\"Error code if applicable\",\"type\":\"string\"},\"errorMsg\":{\"description\":\"Error message if applicable\",\"type\":\"string\"},\"success\":{\"description\":\"Indicates if the request was successful\",\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Successful response with tracking details\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"errorCode\":{\"example\":\"INVALID_PARAMETER\",\"type\":\"string\"},\"errorMsg\":{\"example\":\"Invalid tracking number format\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Bad request - Invalid parameters\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"errorCode\":{\"example\":\"NOT_FOUND\",\"type\":\"string\"},\"errorMsg\":{\"example\":\"Tracking number not found in system\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Tracking number not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"errorCode\":{\"example\":\"INTERNAL_ERROR\",\"type\":\"string\"},\"errorMsg\":{\"example\":\"An internal error occurred\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/global/detail.json","segments":[{"lit":"global"},{"lit":"detail.json"}],"select":{"exist":["lang","language","mail_no"]},"transform":{"req":"`reqdata`","res":"`body.data`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"tracking","name__orig":"tracking","Name":"Tracking","name_":"tracking","name-":"tracking","NAME":"TRACKING","index$":0}, {"active":true,"entity":"tracking","key$":"BasicTrackingFlow","kind":"basic","name":"BasicTrackingFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"tracking_ref01","srcdatavar":"tracking_ref01_data","suffix":"_dt0"},"match":{},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-tracking_ref01"}}],"index$":0}]}, 'Tracking')
     }
     const client = setup.client
     const struct = setup.struct
@@ -109,13 +108,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['CAINIAO_TRACKING_TEST_TRACKING_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'CAINIAO_TRACKING_TEST_TRACKING_ENTID': idmap,
     'CAINIAO_TRACKING_TEST_LIVE': 'FALSE',
@@ -126,7 +118,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.CAINIAO_TRACKING_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['CAINIAO_TRACKING_TEST_TRACKING_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new CainiaoTrackingSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -138,7 +136,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -151,7 +150,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.CAINIAO_TRACKING_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 
