@@ -91,37 +91,44 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "destCountry",
-						"short": "Destination country code",
+						"title": "Dest Country",
 						"type": "`$STRING`",
+						"short": "Destination country code",
 					},
 					map[string]any{
 						"name": "latestTrackingInfo",
+						"title": "Latest Tracking Info",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "mailNo",
-						"short": "The tracking number of the shipment",
+						"title": "Mail No",
 						"type": "`$STRING`",
+						"short": "The tracking number of the shipment",
 					},
 					map[string]any{
 						"name": "originCountry",
-						"short": "Origin country code",
+						"title": "Origin Country",
 						"type": "`$STRING`",
+						"short": "Origin country code",
 					},
 					map[string]any{
 						"name": "status",
-						"short": "Current status of the shipment",
+						"title": "Status",
 						"type": "`$STRING`",
+						"short": "Current status of the shipment",
 					},
 					map[string]any{
 						"name": "statusDescription",
-						"short": "Detailed description of the current status",
+						"title": "Status Description",
 						"type": "`$STRING`",
+						"short": "Detailed description of the current status",
 					},
 					map[string]any{
 						"name": "trackingList",
-						"short": "Complete tracking history",
+						"title": "Tracking List",
 						"type": "`$ARRAY`",
+						"short": "Complete tracking history",
 					},
 				},
 				"name": "tracking",
@@ -131,32 +138,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "en-US",
-											"kind": "query",
-											"name": "lang",
-											"orig": "lang",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "en-US",
-											"kind": "query",
-											"name": "language",
-											"orig": "language",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "ZH363796677HK",
-											"kind": "query",
-											"name": "mail_no",
-											"orig": "mail_no",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/global/detail.json",
@@ -168,20 +149,47 @@ func MakeConfig() map[string]any {
 										"lit": "detail.json",
 									},
 								},
+								"parts": []any{
+									"global",
+									"detail.json",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.data`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "lang",
+											"orig": "lang",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "en-US",
+										},
+										map[string]any{
+											"name": "language",
+											"orig": "language",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "en-US",
+										},
+										map[string]any{
+											"name": "mail_no",
+											"orig": "mail_no",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "ZH363796677HK",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"lang",
 										"language",
 										"mail_no",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.data`",
-								},
-								"parts": []any{
-									"global",
-									"detail.json",
 								},
 							},
 						},

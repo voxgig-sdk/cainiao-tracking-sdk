@@ -116,37 +116,44 @@ def make_config():
         "fields": [
           {
             "name": "destCountry",
-            "short": "Destination country code",
+            "title": "Dest Country",
             "type": "`$STRING`",
+            "short": "Destination country code",
           },
           {
             "name": "latestTrackingInfo",
+            "title": "Latest Tracking Info",
             "type": "`$OBJECT`",
           },
           {
             "name": "mailNo",
-            "short": "The tracking number of the shipment",
+            "title": "Mail No",
             "type": "`$STRING`",
+            "short": "The tracking number of the shipment",
           },
           {
             "name": "originCountry",
-            "short": "Origin country code",
+            "title": "Origin Country",
             "type": "`$STRING`",
+            "short": "Origin country code",
           },
           {
             "name": "status",
-            "short": "Current status of the shipment",
+            "title": "Status",
             "type": "`$STRING`",
+            "short": "Current status of the shipment",
           },
           {
             "name": "statusDescription",
-            "short": "Detailed description of the current status",
+            "title": "Status Description",
             "type": "`$STRING`",
+            "short": "Detailed description of the current status",
           },
           {
             "name": "trackingList",
-            "short": "Complete tracking history",
+            "title": "Tracking List",
             "type": "`$ARRAY`",
+            "short": "Complete tracking history",
           },
         ],
         "name": "tracking",
@@ -156,32 +163,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "en-US",
-                      "kind": "query",
-                      "name": "lang",
-                      "orig": "lang",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": "en-US",
-                      "kind": "query",
-                      "name": "language",
-                      "orig": "language",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": "ZH363796677HK",
-                      "kind": "query",
-                      "name": "mail_no",
-                      "orig": "mail_no",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/global/detail.json",
@@ -193,6 +174,41 @@ def make_config():
                     "lit": "detail.json",
                   },
                 ],
+                "parts": [
+                  "global",
+                  "detail.json",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "lang",
+                      "orig": "lang",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "en-US",
+                    },
+                    {
+                      "name": "language",
+                      "orig": "language",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "en-US",
+                    },
+                    {
+                      "name": "mail_no",
+                      "orig": "mail_no",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "ZH363796677HK",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "lang",
@@ -200,14 +216,6 @@ def make_config():
                     "mail_no",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "parts": [
-                  "global",
-                  "detail.json",
-                ],
               },
             ],
           },

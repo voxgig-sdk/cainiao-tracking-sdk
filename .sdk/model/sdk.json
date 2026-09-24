@@ -24,62 +24,135 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "tracking": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "destCountry",
-              "req": false,
-              "short": "Destination country code",
-              "type": "`$STRING`"
+          "fields": {
+            "destCountry": {
+              "a": true,
+              "h": "Dest Country",
+              "n": "destCountry",
+              "r": false,
+              "sh": "Destination country code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "latestTrackingInfo",
-              "req": false,
-              "type": "`$OBJECT`"
+            "latestTrackingInfo": {
+              "a": true,
+              "h": "Latest Tracking Info",
+              "n": "latestTrackingInfo",
+              "r": false,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "mailNo",
-              "req": false,
-              "short": "The tracking number of the shipment",
-              "type": "`$STRING`"
+            "mailNo": {
+              "a": true,
+              "h": "Mail No",
+              "n": "mailNo",
+              "r": false,
+              "sh": "The tracking number of the shipment",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "originCountry",
-              "req": false,
-              "short": "Origin country code",
-              "type": "`$STRING`"
+            "originCountry": {
+              "a": true,
+              "h": "Origin Country",
+              "n": "originCountry",
+              "r": false,
+              "sh": "Origin country code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "status",
-              "req": false,
-              "short": "Current status of the shipment",
-              "type": "`$STRING`"
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "Current status of the shipment",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "statusDescription",
-              "req": false,
-              "short": "Detailed description of the current status",
-              "type": "`$STRING`"
+            "statusDescription": {
+              "a": true,
+              "h": "Status Description",
+              "n": "statusDescription",
+              "r": false,
+              "sh": "Detailed description of the current status",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "trackingList",
-              "req": false,
-              "short": "Complete tracking history",
-              "type": "`$ARRAY`"
+            "trackingList": {
+              "a": true,
+              "h": "Tracking List",
+              "n": "trackingList",
+              "r": false,
+              "sh": "Complete tracking history",
+              "t": "`$ARRAY`"
             }
-          ],
+          },
           "name": "tracking",
           "op": {
             "load": {
@@ -87,48 +160,55 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /global/detail.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "en-US",
-                        "kind": "query",
-                        "name": "lang",
-                        "orig": "lang",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "en-US",
+                        "k": "query",
+                        "n": "lang",
+                        "or": "lang",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "en-US",
-                        "kind": "query",
-                        "name": "language",
-                        "orig": "language",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "en-US",
+                        "k": "query",
+                        "n": "language",
+                        "or": "language",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "ZH363796677HK",
-                        "kind": "query",
-                        "name": "mail_no",
-                        "orig": "mail_no",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "ZH363796677HK",
+                        "k": "query",
+                        "n": "mail_no",
+                        "or": "mail_no",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /global/detail.json",
-                    "json": "{\"operationId\":\"getTrackingDetail\",\"parameters\":[{\"description\":\"Tracking number(s) for the shipment(s). Multiple tracking numbers can be provided separated by commas.\",\"example\":\"ZH363796677HK\",\"in\":\"query\",\"name\":\"mailNos\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Language code for the response (e.g., en-US, zh-CN, fr-FR)\",\"example\":\"en-US\",\"in\":\"query\",\"name\":\"lang\",\"required\":false,\"schema\":{\"default\":\"en-US\",\"type\":\"string\"}},{\"description\":\"Alternative language parameter for response localization\",\"example\":\"en-US\",\"in\":\"query\",\"name\":\"language\",\"required\":false,\"schema\":{\"default\":\"en-US\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"data\":{\"destCountry\":\"US\",\"latestTrackingInfo\":{\"desc\":\"Delivered\",\"location\":\"New York, US\",\"time\":\"2024-01-15T10:30:00Z\"},\"mailNo\":\"ZH363796677HK\",\"originCountry\":\"CN\",\"status\":\"DELIVERED\",\"statusDescription\":\"Package delivered successfully\",\"trackingList\":[{\"desc\":\"Delivered\",\"location\":\"New York, US\",\"status\":\"DELIVERED\",\"time\":\"2024-01-15T10:30:00Z\"},{\"desc\":\"Out for delivery\",\"location\":\"New York, US\",\"status\":\"IN_TRANSIT\",\"time\":\"2024-01-14T08:00:00Z\"}]},\"success\":true},\"schema\":{\"properties\":{\"data\":{\"properties\":{\"destCountry\":{\"description\":\"Destination country code\",\"type\":\"string\"},\"latestTrackingInfo\":{\"properties\":{\"desc\":{\"description\":\"Description of the latest tracking event\",\"type\":\"string\"},\"location\":{\"description\":\"Location of the latest tracking event\",\"type\":\"string\"},\"time\":{\"description\":\"Timestamp of the latest tracking event\",\"format\":\"date-time\",\"type\":\"string\"}},\"type\":\"object\"},\"mailNo\":{\"description\":\"The tracking number of the shipment\",\"type\":\"string\"},\"originCountry\":{\"description\":\"Origin country code\",\"type\":\"string\"},\"status\":{\"description\":\"Current status of the shipment\",\"type\":\"string\"},\"statusDescription\":{\"description\":\"Detailed description of the current status\",\"type\":\"string\"},\"trackingList\":{\"description\":\"Complete tracking history\",\"items\":{\"properties\":{\"desc\":{\"description\":\"Description of the tracking event\",\"type\":\"string\"},\"location\":{\"description\":\"Location of the tracking event\",\"type\":\"string\"},\"status\":{\"description\":\"Status at this tracking point\",\"type\":\"string\"},\"time\":{\"description\":\"Timestamp of the tracking event\",\"format\":\"date-time\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"errorCode\":{\"description\":\"Error code if applicable\",\"type\":\"string\"},\"errorMsg\":{\"description\":\"Error message if applicable\",\"type\":\"string\"},\"success\":{\"description\":\"Indicates if the request was successful\",\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Successful response with tracking details\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"errorCode\":{\"example\":\"INVALID_PARAMETER\",\"type\":\"string\"},\"errorMsg\":{\"example\":\"Invalid tracking number format\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Bad request - Invalid parameters\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"errorCode\":{\"example\":\"NOT_FOUND\",\"type\":\"string\"},\"errorMsg\":{\"example\":\"Tracking number not found in system\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Tracking number not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"errorCode\":{\"example\":\"INTERNAL_ERROR\",\"type\":\"string\"},\"errorMsg\":{\"example\":\"An internal error occurred\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/global/detail.json",
+                  "q": {
+                    "exist": [
+                      "lang",
+                      "language",
+                      "mail_no"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/global/detail.json",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "global"
                     },
@@ -136,14 +216,7 @@
                       "lit": "detail.json"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "lang",
-                      "language",
-                      "mail_no"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.data`"
                   }
@@ -572,17 +645,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "tracking_ref01",
                 "srcdatavar": "tracking_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

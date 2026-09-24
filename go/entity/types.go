@@ -1,7 +1,7 @@
 // Typed models for the CainiaoTracking SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,13 +14,6 @@ import (
 
 // Tracking is the typed data model for the tracking entity.
 type Tracking struct {
-	DestCountry *string `json:"destCountry,omitempty"`
-	LatestTrackingInfo *map[string]any `json:"latestTrackingInfo,omitempty"`
-	MailNo *string `json:"mailNo,omitempty"`
-	OriginCountry *string `json:"originCountry,omitempty"`
-	Status *string `json:"status,omitempty"`
-	StatusDescription *string `json:"statusDescription,omitempty"`
-	TrackingList *[]any `json:"trackingList,omitempty"`
 }
 
 // TrackingLoadMatch is the typed request payload for Tracking.LoadTyped.

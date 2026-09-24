@@ -1,0 +1,125 @@
+# Entity: tracking
+
+main: kit: entity: tracking: {
+
+  alias: field: {}
+
+  fields: {
+    destCountry: {
+      h: "Dest Country"
+      n: "destCountry"
+      r: false
+      sh: "Destination country code"
+      t: "`$STRING`"
+    }
+    latestTrackingInfo: {
+      h: "Latest Tracking Info"
+      n: "latestTrackingInfo"
+      r: false
+      t: "`$OBJECT`"
+    }
+    mailNo: {
+      h: "Mail No"
+      n: "mailNo"
+      r: false
+      sh: "The tracking number of the shipment"
+      t: "`$STRING`"
+    }
+    originCountry: {
+      h: "Origin Country"
+      n: "originCountry"
+      r: false
+      sh: "Origin country code"
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "Current status of the shipment"
+      t: "`$STRING`"
+    }
+    statusDescription: {
+      h: "Status Description"
+      n: "statusDescription"
+      r: false
+      sh: "Detailed description of the current status"
+      t: "`$STRING`"
+    }
+    trackingList: {
+      h: "Tracking List"
+      n: "trackingList"
+      r: false
+      sh: "Complete tracking history"
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "tracking"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /global/detail.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "en-US"
+                k: "query"
+                n: "lang"
+                or: "lang"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "en-US"
+                k: "query"
+                n: "language"
+                or: "language"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "ZH363796677HK"
+                k: "query"
+                n: "mail_no"
+                or: "mail_no"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/global/detail.json"
+          q: {
+            exist: [
+              "lang"
+              "language"
+              "mail_no"
+            ]
+          }
+          s: [
+            {
+              lit: "global"
+            }
+            {
+              lit: "detail.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
