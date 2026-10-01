@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases](https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/cainiao-tracking-sdk
+composer config repositories.cainiao-tracking-sdk path ./cainiao-tracking-sdk/php
+composer require voxgig-sdk/cainiao-tracking-sdk:@dev
+```
 
 
 ## Tutorial: your first API call
@@ -245,13 +250,10 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `destCountry` | Destination country code |
-| `latestTrackingInfo` |  |
-| `mailNo` | The tracking number of the shipment |
-| `originCountry` | Origin country code |
-| `status` | Current status of the shipment |
-| `statusDescription` | Detailed description of the current status |
-| `trackingList` | Complete tracking history |
+| `data` |  |
+| `errorCode` | Error code if applicable |
+| `errorMsg` | Error message if applicable |
+| `success` | Indicates if the request was successful |
 
 Operations: Load.
 
@@ -276,13 +278,10 @@ Create an instance: `$tracking = $client->Tracking();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destCountry` | `string` | Destination country code |
-| `latestTrackingInfo` | `array` |  |
-| `mailNo` | `string` | The tracking number of the shipment |
-| `originCountry` | `string` | Origin country code |
-| `status` | `string` | Current status of the shipment |
-| `statusDescription` | `string` | Detailed description of the current status |
-| `trackingList` | `array` | Complete tracking history |
+| `data` | `array` |  |
+| `errorCode` | `string` | Error code if applicable |
+| `errorMsg` | `string` | Error message if applicable |
+| `success` | `bool` | Indicates if the request was successful |
 
 #### Example: Load
 

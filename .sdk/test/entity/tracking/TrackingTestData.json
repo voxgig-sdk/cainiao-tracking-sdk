@@ -2,33 +2,24 @@
   "existing": {
     "tracking": {
       "TRACKING00": {
-        "destCountry": "s46",
-        "latestTrackingInfo": {},
-        "mailNo": "s48",
-        "originCountry": "s49",
-        "status": "s4a",
-        "statusDescription": "s4b",
-        "trackingList": [],
+        "data": {},
+        "errorCode": "s29",
+        "errorMsg": "s2a",
+        "success": false,
         "id": "TRACKING00"
       },
       "TRACKING01": {
-        "destCountry": "s8c",
-        "latestTrackingInfo": {},
-        "mailNo": "s8e",
-        "originCountry": "s8f",
-        "status": "s90",
-        "statusDescription": "s91",
-        "trackingList": [],
+        "data": {},
+        "errorCode": "s51",
+        "errorMsg": "s52",
+        "success": false,
         "id": "TRACKING01"
       },
       "TRACKING02": {
-        "destCountry": "sd2",
-        "latestTrackingInfo": {},
-        "mailNo": "sd4",
-        "originCountry": "sd5",
-        "status": "sd6",
-        "statusDescription": "sd7",
-        "trackingList": [],
+        "data": {},
+        "errorCode": "s79",
+        "errorMsg": "s7a",
+        "success": false,
         "id": "TRACKING02"
       }
     }
@@ -36,13 +27,10 @@
   "new": {
     "tracking": {
       "tracking_ref01": {
-        "destCountry": "s118",
-        "latestTrackingInfo": {},
-        "mailNo": "s11a",
-        "originCountry": "s11b",
-        "status": "s11c",
-        "statusDescription": "s11d",
-        "trackingList": []
+        "data": {},
+        "errorCode": "sa1",
+        "errorMsg": "sa2",
+        "success": false
       }
     }
   },

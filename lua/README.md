@@ -225,13 +225,10 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `destCountry` | Destination country code |
-| `latestTrackingInfo` |  |
-| `mailNo` | The tracking number of the shipment |
-| `originCountry` | Origin country code |
-| `status` | Current status of the shipment |
-| `statusDescription` | Detailed description of the current status |
-| `trackingList` | Complete tracking history |
+| `data` |  |
+| `errorCode` | Error code if applicable |
+| `errorMsg` | Error message if applicable |
+| `success` | Indicates if the request was successful |
 
 Operations: Load.
 
@@ -256,13 +253,10 @@ Create an instance: `local tracking = client:Tracking(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destCountry` | `string` | Destination country code |
-| `latestTrackingInfo` | `table` |  |
-| `mailNo` | `string` | The tracking number of the shipment |
-| `originCountry` | `string` | Origin country code |
-| `status` | `string` | Current status of the shipment |
-| `statusDescription` | `string` | Detailed description of the current status |
-| `trackingList` | `table` | Complete tracking history |
+| `data` | `table` |  |
+| `errorCode` | `string` | Error code if applicable |
+| `errorMsg` | `string` | Error message if applicable |
+| `success` | `boolean` | Indicates if the request was successful |
 
 #### Example: Load
 

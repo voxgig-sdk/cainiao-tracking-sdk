@@ -10,34 +10,22 @@
 
 # Tracking entity data model.
 #
-# @!attribute [rw] destCountry
-#   @return [String, nil]
-#
-# @!attribute [rw] latestTrackingInfo
+# @!attribute [rw] data
 #   @return [Hash, nil]
 #
-# @!attribute [rw] mailNo
+# @!attribute [rw] errorCode
 #   @return [String, nil]
 #
-# @!attribute [rw] originCountry
+# @!attribute [rw] errorMsg
 #   @return [String, nil]
 #
-# @!attribute [rw] status
-#   @return [String, nil]
-#
-# @!attribute [rw] statusDescription
-#   @return [String, nil]
-#
-# @!attribute [rw] trackingList
-#   @return [Array, nil]
+# @!attribute [rw] success
+#   @return [Boolean, nil]
 Tracking = Struct.new(
-  :destCountry,
-  :latestTrackingInfo,
-  :mailNo,
-  :originCountry,
-  :status,
-  :statusDescription,
-  :trackingList,
+  :data,
+  :errorCode,
+  :errorMsg,
+  :success,
   keyword_init: true
 )
 

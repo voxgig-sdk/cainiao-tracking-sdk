@@ -17,13 +17,10 @@ from typing import TypedDict, Any
 
 
 class Tracking(TypedDict, total=False):
-    destCountry: str
-    latestTrackingInfo: dict
-    mailNo: str
-    originCountry: str
-    status: str
-    statusDescription: str
-    trackingList: list
+    data: dict
+    errorCode: str
+    errorMsg: str
+    success: bool
 
 
 class TrackingLoadMatchRequired(TypedDict):

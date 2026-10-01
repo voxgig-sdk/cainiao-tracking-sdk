@@ -98,13 +98,10 @@ fmt.Println(tracking.GetName()) // "tracking"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `destCountry` | `string` | No | Destination country code |
-| `latestTrackingInfo` | `map[string]any` | No |  |
-| `mailNo` | `string` | No | The tracking number of the shipment |
-| `originCountry` | `string` | No | Origin country code |
-| `status` | `string` | No | Current status of the shipment |
-| `statusDescription` | `string` | No | Detailed description of the current status |
-| `trackingList` | `[]any` | No | Complete tracking history |
+| `data` | `map[string]any` | No |  |
+| `errorCode` | `string` | No | Error code if applicable |
+| `errorMsg` | `string` | No | Error message if applicable |
+| `success` | `bool` | No | Indicates if the request was successful |
 
 ### Operations
 

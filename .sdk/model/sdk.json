@@ -97,60 +97,36 @@
             "field": {}
           },
           "fields": {
-            "destCountry": {
+            "data": {
               "a": true,
-              "h": "Dest Country",
-              "n": "destCountry",
-              "r": false,
-              "sh": "Destination country code",
-              "t": "`$STRING`"
-            },
-            "latestTrackingInfo": {
-              "a": true,
-              "h": "Latest Tracking Info",
-              "n": "latestTrackingInfo",
+              "h": "Data",
+              "n": "data",
               "r": false,
               "t": "`$OBJECT`"
             },
-            "mailNo": {
+            "errorCode": {
               "a": true,
-              "h": "Mail No",
-              "n": "mailNo",
+              "h": "Error Code",
+              "n": "errorCode",
               "r": false,
-              "sh": "The tracking number of the shipment",
+              "sh": "Error code if applicable",
               "t": "`$STRING`"
             },
-            "originCountry": {
+            "errorMsg": {
               "a": true,
-              "h": "Origin Country",
-              "n": "originCountry",
+              "h": "Error Msg",
+              "n": "errorMsg",
               "r": false,
-              "sh": "Origin country code",
+              "sh": "Error message if applicable",
               "t": "`$STRING`"
             },
-            "status": {
+            "success": {
               "a": true,
-              "h": "Status",
-              "n": "status",
+              "h": "Success",
+              "n": "success",
               "r": false,
-              "sh": "Current status of the shipment",
-              "t": "`$STRING`"
-            },
-            "statusDescription": {
-              "a": true,
-              "h": "Status Description",
-              "n": "statusDescription",
-              "r": false,
-              "sh": "Detailed description of the current status",
-              "t": "`$STRING`"
-            },
-            "trackingList": {
-              "a": true,
-              "h": "Tracking List",
-              "n": "trackingList",
-              "r": false,
-              "sh": "Complete tracking history",
-              "t": "`$ARRAY`"
+              "sh": "Indicates if the request was successful",
+              "t": "`$BOOLEAN`"
             }
           },
           "name": "tracking",
@@ -191,7 +167,7 @@
                         "ex": "ZH363796677HK",
                         "k": "query",
                         "n": "mail_no",
-                        "or": "mail_no",
+                        "or": "mailNos",
                         "r": true,
                         "t": "`$STRING`"
                       }
@@ -218,7 +194,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.data`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -704,7 +680,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

@@ -12,9 +12,18 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`):
+GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases)), or
+from a clone:
 
-- Releases: [https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases](https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/cainiao-tracking-sdk
+```
+
+Then add it to your `Gemfile` by path, and run `bundle install`:
+
+```ruby
+gem "voxgig-sdk-cainiao-tracking-sdk", path: "./cainiao-tracking-sdk/rb"
+```
 
 
 ## Tutorial: your first API call
@@ -235,13 +244,10 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `destCountry` | Destination country code |
-| `latestTrackingInfo` |  |
-| `mailNo` | The tracking number of the shipment |
-| `originCountry` | Origin country code |
-| `status` | Current status of the shipment |
-| `statusDescription` | Detailed description of the current status |
-| `trackingList` | Complete tracking history |
+| `data` |  |
+| `errorCode` | Error code if applicable |
+| `errorMsg` | Error message if applicable |
+| `success` | Indicates if the request was successful |
 
 Operations: Load.
 
@@ -266,13 +272,10 @@ Create an instance: `tracking = client.Tracking`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destCountry` | `String` | Destination country code |
-| `latestTrackingInfo` | `Hash` |  |
-| `mailNo` | `String` | The tracking number of the shipment |
-| `originCountry` | `String` | Origin country code |
-| `status` | `String` | Current status of the shipment |
-| `statusDescription` | `String` | Detailed description of the current status |
-| `trackingList` | `Array` | Complete tracking history |
+| `data` | `Hash` |  |
+| `errorCode` | `String` | Error code if applicable |
+| `errorMsg` | `String` | Error message if applicable |
+| `success` | `Boolean` | Indicates if the request was successful |
 
 #### Example: Load
 

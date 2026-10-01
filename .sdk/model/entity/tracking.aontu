@@ -5,53 +5,32 @@ main: kit: entity: tracking: {
   alias: field: {}
 
   fields: {
-    destCountry: {
-      h: "Dest Country"
-      n: "destCountry"
-      r: false
-      sh: "Destination country code"
-      t: "`$STRING`"
-    }
-    latestTrackingInfo: {
-      h: "Latest Tracking Info"
-      n: "latestTrackingInfo"
+    data: {
+      h: "Data"
+      n: "data"
       r: false
       t: "`$OBJECT`"
     }
-    mailNo: {
-      h: "Mail No"
-      n: "mailNo"
+    errorCode: {
+      h: "Error Code"
+      n: "errorCode"
       r: false
-      sh: "The tracking number of the shipment"
+      sh: "Error code if applicable"
       t: "`$STRING`"
     }
-    originCountry: {
-      h: "Origin Country"
-      n: "originCountry"
+    errorMsg: {
+      h: "Error Msg"
+      n: "errorMsg"
       r: false
-      sh: "Origin country code"
+      sh: "Error message if applicable"
       t: "`$STRING`"
     }
-    status: {
-      h: "Status"
-      n: "status"
+    success: {
+      h: "Success"
+      n: "success"
       r: false
-      sh: "Current status of the shipment"
-      t: "`$STRING`"
-    }
-    statusDescription: {
-      h: "Status Description"
-      n: "statusDescription"
-      r: false
-      sh: "Detailed description of the current status"
-      t: "`$STRING`"
-    }
-    trackingList: {
-      h: "Tracking List"
-      n: "trackingList"
-      r: false
-      sh: "Complete tracking history"
-      t: "`$ARRAY`"
+      sh: "Indicates if the request was successful"
+      t: "`$BOOLEAN`"
     }
   }
 
@@ -88,7 +67,7 @@ main: kit: entity: tracking: {
                 ex: "ZH363796677HK"
                 k: "query"
                 n: "mail_no"
-                or: "mail_no"
+                or: "mailNos"
                 r: true
                 t: "`$STRING`"
               }
@@ -113,7 +92,7 @@ main: kit: entity: tracking: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.data`"
+            res: "`body`"
           }
         }
       ]

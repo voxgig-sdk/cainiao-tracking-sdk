@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 CainiaoTrackingUtility.registrar = ->(u) {
   u.clean = CainiaoTrackingUtilities::Clean
+  u.clean_add = CainiaoTrackingUtilities::CleanAdd
+  u.clean_explain = CainiaoTrackingUtilities::CleanExplain
   u.done = CainiaoTrackingUtilities::Done
   u.make_error = CainiaoTrackingUtilities::MakeError
   u.feature_add = CainiaoTrackingUtilities::FeatureAdd

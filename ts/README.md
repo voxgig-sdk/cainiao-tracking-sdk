@@ -15,9 +15,13 @@ predictable and low-friction for both humans and AI agents.
 
 ## Install
 This package is not yet published to npm. Install it from the GitHub
-release tag (`ts/vX.Y.Z`):
+release tag (`ts/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases)), or from a
+clone, which carries the compiled `dist/`:
 
-- Releases: [https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases](https://github.com/voxgig-sdk/cainiao-tracking-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/cainiao-tracking-sdk
+npm install ./cainiao-tracking-sdk/ts
+```
 
 
 ## Tutorial: your first API call
@@ -290,13 +294,10 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `destCountry` | Destination country code |
-| `latestTrackingInfo` |  |
-| `mailNo` | The tracking number of the shipment |
-| `originCountry` | Origin country code |
-| `status` | Current status of the shipment |
-| `statusDescription` | Detailed description of the current status |
-| `trackingList` | Complete tracking history |
+| `data` |  |
+| `errorCode` | Error code if applicable |
+| `errorMsg` | Error message if applicable |
+| `success` | Indicates if the request was successful |
 
 Operations: load.
 
@@ -321,13 +322,10 @@ Create an instance: `const tracking = client.Tracking()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destCountry` | `string` | Destination country code |
-| `latestTrackingInfo` | `Record<string, any>` |  |
-| `mailNo` | `string` | The tracking number of the shipment |
-| `originCountry` | `string` | Origin country code |
-| `status` | `string` | Current status of the shipment |
-| `statusDescription` | `string` | Detailed description of the current status |
-| `trackingList` | `any[]` | Complete tracking history |
+| `data` | `Record<string, any>` |  |
+| `errorCode` | `string` | Error code if applicable |
+| `errorMsg` | `string` | Error message if applicable |
+| `success` | `boolean` | Indicates if the request was successful |
 
 #### Example: Load
 

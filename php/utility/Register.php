@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 CainiaoTrackingUtility::setRegistrar(function (CainiaoTrackingUtility $u): void {
     $u->clean = [CainiaoTrackingClean::class, 'call'];
+    $u->clean_add = [CainiaoTrackingClean::class, 'add'];
+    $u->clean_explain = [CainiaoTrackingDone::class, 'clean_explain'];
     $u->done = [CainiaoTrackingDone::class, 'call'];
     $u->make_error = [CainiaoTrackingMakeError::class, 'call'];
     $u->feature_add = [CainiaoTrackingFeatureAdd::class, 'call'];

@@ -7,13 +7,10 @@
 -- edit by hand.
 
 ---@class Tracking
----@field destCountry? string
----@field latestTrackingInfo? table
----@field mailNo? string
----@field originCountry? string
----@field status? string
----@field statusDescription? string
----@field trackingList? table
+---@field data? table
+---@field errorCode? string
+---@field errorMsg? string
+---@field success? boolean
 
 ---@class TrackingLoadMatch
 ---@field lang? string

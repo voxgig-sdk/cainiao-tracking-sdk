@@ -115,45 +115,27 @@ def make_config():
       "tracking": {
         "fields": [
           {
-            "name": "destCountry",
-            "title": "Dest Country",
-            "type": "`$STRING`",
-            "short": "Destination country code",
-          },
-          {
-            "name": "latestTrackingInfo",
-            "title": "Latest Tracking Info",
+            "name": "data",
+            "title": "Data",
             "type": "`$OBJECT`",
           },
           {
-            "name": "mailNo",
-            "title": "Mail No",
+            "name": "errorCode",
+            "title": "Error Code",
             "type": "`$STRING`",
-            "short": "The tracking number of the shipment",
+            "short": "Error code if applicable",
           },
           {
-            "name": "originCountry",
-            "title": "Origin Country",
+            "name": "errorMsg",
+            "title": "Error Msg",
             "type": "`$STRING`",
-            "short": "Origin country code",
+            "short": "Error message if applicable",
           },
           {
-            "name": "status",
-            "title": "Status",
-            "type": "`$STRING`",
-            "short": "Current status of the shipment",
-          },
-          {
-            "name": "statusDescription",
-            "title": "Status Description",
-            "type": "`$STRING`",
-            "short": "Detailed description of the current status",
-          },
-          {
-            "name": "trackingList",
-            "title": "Tracking List",
-            "type": "`$ARRAY`",
-            "short": "Complete tracking history",
+            "name": "success",
+            "title": "Success",
+            "type": "`$BOOLEAN`",
+            "short": "Indicates if the request was successful",
           },
         ],
         "name": "tracking",
@@ -181,7 +163,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.data`",
+                  "res": "`body`",
                 },
                 "args": {
                   "query": [
@@ -201,7 +183,7 @@ def make_config():
                     },
                     {
                       "name": "mail_no",
-                      "orig": "mail_no",
+                      "orig": "mailNos",
                       "type": "`$STRING`",
                       "kind": "query",
                       "reqd": True,

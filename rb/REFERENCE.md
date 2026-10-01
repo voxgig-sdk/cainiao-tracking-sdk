@@ -93,13 +93,10 @@ tracking = client.Tracking
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `destCountry` | `String` | No | Destination country code |
-| `latestTrackingInfo` | `Hash` | No |  |
-| `mailNo` | `String` | No | The tracking number of the shipment |
-| `originCountry` | `String` | No | Origin country code |
-| `status` | `String` | No | Current status of the shipment |
-| `statusDescription` | `String` | No | Detailed description of the current status |
-| `trackingList` | `Array` | No | Complete tracking history |
+| `data` | `Hash` | No |  |
+| `errorCode` | `String` | No | Error code if applicable |
+| `errorMsg` | `String` | No | Error message if applicable |
+| `success` | `Boolean` | No | Indicates if the request was successful |
 
 ### Operations
 

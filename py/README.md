@@ -241,13 +241,10 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `destCountry` | Destination country code |
-| `latestTrackingInfo` |  |
-| `mailNo` | The tracking number of the shipment |
-| `originCountry` | Origin country code |
-| `status` | Current status of the shipment |
-| `statusDescription` | Detailed description of the current status |
-| `trackingList` | Complete tracking history |
+| `data` |  |
+| `errorCode` | Error code if applicable |
+| `errorMsg` | Error message if applicable |
+| `success` | Indicates if the request was successful |
 
 Operations: Load.
 
@@ -272,13 +269,10 @@ Create an instance: `tracking = client.Tracking()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destCountry` | `str` | Destination country code |
-| `latestTrackingInfo` | `dict` |  |
-| `mailNo` | `str` | The tracking number of the shipment |
-| `originCountry` | `str` | Origin country code |
-| `status` | `str` | Current status of the shipment |
-| `statusDescription` | `str` | Detailed description of the current status |
-| `trackingList` | `list` | Complete tracking history |
+| `data` | `dict` |  |
+| `errorCode` | `str` | Error code if applicable |
+| `errorMsg` | `str` | Error message if applicable |
+| `success` | `bool` | Indicates if the request was successful |
 
 #### Example: Load
 

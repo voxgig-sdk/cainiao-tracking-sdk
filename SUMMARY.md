@@ -20,11 +20,9 @@ SDK operations: `load`.
 
 Key fields to recognise:
 
-- `destCountry`: Destination country code
-- `mailNo`: The tracking number of the shipment
-- `originCountry`: Origin country code
-- `status`: Current status of the shipment
-- `statusDescription`: Detailed description of the current status
+- `errorCode`: Error code if applicable
+- `errorMsg`: Error message if applicable
+- `success`: Indicates if the request was successful
 
 ### Route map
 

@@ -90,45 +90,27 @@ func MakeConfig() map[string]any {
 			"tracking": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "destCountry",
-						"title": "Dest Country",
-						"type": "`$STRING`",
-						"short": "Destination country code",
-					},
-					map[string]any{
-						"name": "latestTrackingInfo",
-						"title": "Latest Tracking Info",
+						"name": "data",
+						"title": "Data",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"name": "mailNo",
-						"title": "Mail No",
+						"name": "errorCode",
+						"title": "Error Code",
 						"type": "`$STRING`",
-						"short": "The tracking number of the shipment",
+						"short": "Error code if applicable",
 					},
 					map[string]any{
-						"name": "originCountry",
-						"title": "Origin Country",
+						"name": "errorMsg",
+						"title": "Error Msg",
 						"type": "`$STRING`",
-						"short": "Origin country code",
+						"short": "Error message if applicable",
 					},
 					map[string]any{
-						"name": "status",
-						"title": "Status",
-						"type": "`$STRING`",
-						"short": "Current status of the shipment",
-					},
-					map[string]any{
-						"name": "statusDescription",
-						"title": "Status Description",
-						"type": "`$STRING`",
-						"short": "Detailed description of the current status",
-					},
-					map[string]any{
-						"name": "trackingList",
-						"title": "Tracking List",
-						"type": "`$ARRAY`",
-						"short": "Complete tracking history",
+						"name": "success",
+						"title": "Success",
+						"type": "`$BOOLEAN`",
+						"short": "Indicates if the request was successful",
 					},
 				},
 				"name": "tracking",
@@ -156,7 +138,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body.data`",
+									"res": "`body`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -176,7 +158,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "mail_no",
-											"orig": "mail_no",
+											"orig": "mailNos",
 											"type": "`$STRING`",
 											"kind": "query",
 											"reqd": true,

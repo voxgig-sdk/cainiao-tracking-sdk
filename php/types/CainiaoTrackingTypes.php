@@ -15,13 +15,10 @@ declare(strict_types=1);
 /** Tracking entity data model. */
 class Tracking
 {
-    public ?string $destCountry = null;
-    public ?array $latestTrackingInfo = null;
-    public ?string $mailNo = null;
-    public ?string $originCountry = null;
-    public ?string $status = null;
-    public ?string $statusDescription = null;
-    public ?array $trackingList = null;
+    public ?array $data = null;
+    public ?string $errorCode = null;
+    public ?string $errorMsg = null;
+    public ?bool $success = null;
 }
 
 /** Request payload for Tracking#load. */
