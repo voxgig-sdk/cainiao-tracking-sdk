@@ -79,6 +79,7 @@ module CainiaoTrackingConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -176,10 +177,12 @@ module CainiaoTrackingConfig
                   },
                   "select" => {
                     "exist" => [
-                      "lang",
-                      "language",
                       "mail_no",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

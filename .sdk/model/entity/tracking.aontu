@@ -77,10 +77,12 @@ main: kit: entity: tracking: {
           o: "/global/detail.json"
           q: {
             exist: [
-              "lang"
-              "language"
               "mail_no"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

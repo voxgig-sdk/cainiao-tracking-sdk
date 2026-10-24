@@ -3,5 +3,15 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Cainiao Global Tracking Server",
+      "Error code if applicable",
+      "Error message if applicable",
+      "Indicates if the request was successful",
+      "Successful response with tracking details",
+      "This API provides access to the global tracking information for shipments handled by Cainiao, Aliexpress, and Alibaba. Users can retrieve detailed shipment statuses, delivery information, and track parcels across various regions."
+    ]
+  }
 }

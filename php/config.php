@@ -93,6 +93,7 @@ class CainiaoTrackingConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -190,10 +191,12 @@ class CainiaoTrackingConfig
                   ],
                   'select' => [
                     'exist' => [
-                      'lang',
-                      'language',
                       'mail_no',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

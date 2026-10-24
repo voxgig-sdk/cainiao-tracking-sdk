@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { CainiaoTrackingSDK, BaseFeature, stdutil } from '../../..'
+import { CainiaoTrackingSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,18 @@ describe('TrackingEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = CainiaoTrackingSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Tracking().load({"lang":1,"mail_no":"x"} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.CAINIAO_TRACKING_TEST_LIVE
@@ -51,7 +63,7 @@ describe('TrackingEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"data":{"a":true,"h":"Data","n":"data","r":false,"t":"`$OBJECT`","key$":"data","index$":0},"errorCode":{"a":true,"h":"Error Code","n":"errorCode","r":false,"sh":"Error code if applicable","t":"`$STRING`","key$":"errorCode","index$":1},"errorMsg":{"a":true,"h":"Error Msg","n":"errorMsg","r":false,"sh":"Error message if applicable","t":"`$STRING`","key$":"errorMsg","index$":2},"success":{"a":true,"h":"Success","n":"success","r":false,"sh":"Indicates if the request was successful","t":"`$BOOLEAN`","key$":"success","index$":3}},"name":"tracking","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /global/detail.json","source":"openapi3","version":2},"g":{"query":[{"a":true,"ex":"en-US","k":"query","n":"lang","or":"lang","r":false,"t":"`$STRING`","index$":0},{"a":true,"ex":"en-US","k":"query","n":"language","or":"language","r":false,"t":"`$STRING`","index$":1},{"a":true,"ex":"ZH363796677HK","k":"query","n":"mail_no","or":"mailNos","r":true,"t":"`$STRING`","index$":2}]},"k":"http","m":"GET","o":"/global/detail.json","q":{"exist":["lang","language","mail_no"]},"r":{},"s":[{"lit":"global"},{"lit":"detail.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"tracking","name__orig":"tracking","Name":"Tracking","name_":"tracking","name-":"tracking","NAME":"TRACKING","index$":0}, {"active":true,"entity":"tracking","key$":"BasicTrackingFlow","kind":"basic","name":"BasicTrackingFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"tracking_ref01","srcdatavar":"tracking_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-tracking_ref01"}}],"index$":0}]}, 'Tracking', {"GET /global/detail.json":{"protocol":"http","parameters":[{"name":"mailNos","in":"query","description":"Tracking number(s) for the shipment(s). Multiple tracking numbers can be provided separated by commas.","required":true,"schema":{"type":"string"},"example":"ZH363796677HK","index$":0},{"name":"lang","in":"query","description":"Language code for the response (e.g., en-US, zh-CN, fr-FR)","required":false,"schema":{"type":"string","default":"en-US"},"example":"en-US","index$":1},{"name":"language","in":"query","description":"Alternative language parameter for response localization","required":false,"schema":{"type":"string","default":"en-US"},"example":"en-US","index$":2}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"data":{"a":true,"h":"Data","n":"data","r":false,"t":"`$OBJECT`","key$":"data","index$":0},"errorCode":{"a":true,"h":"Error Code","n":"errorCode","r":false,"sh":"Error code if applicable","t":"`$STRING`","key$":"errorCode","index$":1},"errorMsg":{"a":true,"h":"Error Msg","n":"errorMsg","r":false,"sh":"Error message if applicable","t":"`$STRING`","key$":"errorMsg","index$":2},"success":{"a":true,"h":"Success","n":"success","r":false,"sh":"Indicates if the request was successful","t":"`$BOOLEAN`","key$":"success","index$":3}},"name":"tracking","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /global/detail.json","source":"openapi3","version":2},"g":{"query":[{"a":true,"ex":"en-US","k":"query","n":"lang","or":"lang","r":false,"t":"`$STRING`","index$":0},{"a":true,"ex":"en-US","k":"query","n":"language","or":"language","r":false,"t":"`$STRING`","index$":1},{"a":true,"ex":"ZH363796677HK","k":"query","n":"mail_no","or":"mailNos","r":true,"t":"`$STRING`","index$":2}]},"k":"http","m":"GET","o":"/global/detail.json","q":{"exist":["mail_no"]},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"global"},{"lit":"detail.json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"tracking","name__orig":"tracking","Name":"Tracking","name_":"tracking","name-":"tracking","NAME":"TRACKING","index$":0}, {"active":true,"entity":"tracking","key$":"BasicTrackingFlow","kind":"basic","name":"BasicTrackingFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"tracking_ref01","srcdatavar":"tracking_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-tracking_ref01"}}],"index$":0}]}, 'Tracking', {"GET /global/detail.json":{"protocol":"http","parameters":[{"name":"mailNos","in":"query","description":"Tracking number(s) for the shipment(s). Multiple tracking numbers can be provided separated by commas.","required":true,"schema":{"type":"string"},"example":"ZH363796677HK","index$":0},{"name":"lang","in":"query","description":"Language code for the response (e.g., en-US, zh-CN, fr-FR)","required":false,"schema":{"type":"string","default":"en-US"},"example":"en-US","index$":1},{"name":"language","in":"query","description":"Alternative language parameter for response localization","required":false,"schema":{"type":"string","default":"en-US"},"example":"en-US","index$":2}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +84,12 @@ describe('TrackingEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

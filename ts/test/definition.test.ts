@@ -16,15 +16,33 @@ const PLAN: any[] = [
     "path": "/global/detail.json",
     "args": [],
     "select": {
+      "mail_no": "v1",
       "lang": "en-US",
-      "language": "en-US",
-      "mail_no": "v1"
+      "language": "en-US"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "mailNos",
       "lang",
       "language"
+    ],
+    "queryArgs": [
+      {
+        "name": "lang",
+        "wire": "lang"
+      },
+      {
+        "name": "language",
+        "wire": "language"
+      },
+      {
+        "name": "mail_no",
+        "wire": "mailNos"
+      }
     ],
     "auth": null,
     "status": 200,
